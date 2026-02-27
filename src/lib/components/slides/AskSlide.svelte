@@ -11,7 +11,7 @@
     { label: "Hardware engineering", pct: "40%", c: C.yellow },
     { label: "Tooling & first production run", pct: "25%", c: C.white },
     { label: "Design & prototyping", pct: "20%", c: C.cream },
-    { label: "Operations & community", pct: "15%", c: C.grey },
+    { label: "Operations & community", pct: "15%", c: C.cream },
   ];
 
   const milestones = [
