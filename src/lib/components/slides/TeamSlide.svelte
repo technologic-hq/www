@@ -10,27 +10,20 @@
     {
       role: "Founding Product Engineer",
       co: "Curio",
-      desc: "AI hardware startup. ESP32-based interactive toys. Shipped production firmware and mobile app (app was a solo endeavor).",
+      desc: "AI hardware startup. Shipped ESP32 firmware and the consumer mobile app end-to-end. Went from chip to App Store alone.",
       c: C.red,
     },
     {
-      role: "First Employee",
+      role: "Founding Engineer",
       co: "Trufflepig",
-      desc: "Spreadsheet startup. Built the product from zero as first hire.",
+      desc: "Built the product from zero as founding hire.",
       c: C.yellow,
-    },
-    {
-      role: "VR Development",
-      co: "Independent",
-      desc: "Immersive education prototypes. Designed a VR-based school replacing lectures with lived experience.",
-      c: C.blue,
     },
   ];
 
-  const hires = [
-    "Hardware engineering lead",
-    "Industrial designer",
-    "Firmware engineer",
+  const momentum = [
+    "In conversation with hardware engineering and industrial design leads",
+    "First advisor calls scheduled for March 2026",
   ];
 </script>
 
@@ -55,9 +48,9 @@
         {/each}
       </div>
       <div class="info-col">
-        <div class="hires-label">Key hires needed</div>
-        {#each hires as h}
-          <div class="hire-item">{h}</div>
+        <div class="hires-label">Building the team</div>
+        {#each momentum as m}
+          <div class="hire-item">{m}</div>
         {/each}
       </div>
     </div>
