@@ -34,7 +34,7 @@
   <Tri s={30} c={C.white} style="bottom: 15%; left: 8%; opacity: 0.3;" />
   <Pad>
     <Label c={C.yellow}>The Ask</Label>
-    <h2>Pre-Seed · $600K - $1M</h2>
+    <h2>Pre-Seed · $1M - $1.5M</h2>
     <div class="two-col">
       <div class="funds-col">
         <div class="col-header">Use of funds</div>
