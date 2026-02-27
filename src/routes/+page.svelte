@@ -85,9 +85,7 @@
   let emailBarVisible = $derived(emailBarTriggered);
   let mobileDotsDark = $derived(allSlides[mobileCurrentSlide]?.dark ?? false);
   let currentSlideDark = $derived(
-    isMobile
-      ? (allSlides[mobileCurrentSlide]?.dark ?? false)
-      : (allSlides[cur]?.dark ?? false),
+    isMobile ? (allSlides[mobileCurrentSlide]?.dark ?? false) : true,
   );
 
   function updateScale() {
