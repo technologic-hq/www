@@ -21,6 +21,7 @@
     font-variation-settings:
       "wght" 450,
       "wdth" 121;
+    font-variant-numeric: tabular-nums;
   }
 
   @media (max-width: 767px) {
