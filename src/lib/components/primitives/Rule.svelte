@@ -20,4 +20,10 @@
 	.rule {
 		position: absolute;
 	}
+
+	@media (max-width: 767px) {
+		.rule {
+			display: none;
+		}
+	}
 </style>

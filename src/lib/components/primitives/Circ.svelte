@@ -14,4 +14,10 @@
 		border-radius: 50%;
 		position: absolute;
 	}
+
+	@media (max-width: 767px) {
+		.circ {
+			display: none;
+		}
+	}
 </style>

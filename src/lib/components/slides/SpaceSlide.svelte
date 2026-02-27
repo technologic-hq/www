@@ -115,4 +115,21 @@
     font-size: 13px;
     color: oklch(95.68% 0.012 79.78 / 0.75);
   }
+
+  @media (max-width: 767px) {
+    h2 {
+      font-size: 22px;
+      max-width: 100%;
+    }
+    .stats-grid {
+      grid-template-columns: 1fr;
+      max-width: 100%;
+    }
+    .stat-value {
+      font-size: 22px;
+    }
+    .context {
+      max-width: 100%;
+    }
+  }
 </style>

@@ -13,4 +13,10 @@
 	.sq {
 		position: absolute;
 	}
+
+	@media (max-width: 767px) {
+		.sq {
+			display: none;
+		}
+	}
 </style>

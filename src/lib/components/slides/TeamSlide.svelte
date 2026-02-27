@@ -8,9 +8,9 @@
 
   const experience = [
     {
-      role: "Sole Mobile Engineer",
+      role: "Founding Product Engineer",
       co: "Curio",
-      desc: "AI hardware startup. ESP32-based interactive toys. Shipped production firmware and app.",
+      desc: "AI hardware startup. ESP32-based interactive toys. Shipped production firmware and mobile app (app was a solo endeavor).",
       c: C.red,
     },
     {
@@ -31,7 +31,6 @@
     "Hardware engineering lead",
     "Industrial designer",
     "Firmware engineer",
-    "Community lead",
   ];
 </script>
 
@@ -41,7 +40,10 @@
   <Pad>
     <Label c={C.yellow}>Founder</Label>
     <h2>Suhit Agarwal</h2>
-    <div class="subtitle">24 &middot; Software & Design Engineer</div>
+    <div class="subtitle">
+      24 &middot; Software & Design Engineer &middot; Applied & Computational
+      Mathematics @ USC
+    </div>
     <div class="two-col">
       <div class="exp-col">
         {#each experience as item}
@@ -118,5 +120,15 @@
     font-size: 11px;
     color: oklch(95.68% 0.012 79.78 / 0.4);
     margin-bottom: 4px;
+  }
+
+  @media (max-width: 767px) {
+    .two-col {
+      flex-direction: column;
+      max-width: 100%;
+    }
+    h2 {
+      font-size: 26px;
+    }
   }
 </style>
