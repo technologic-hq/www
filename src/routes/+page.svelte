@@ -377,17 +377,13 @@
   }
 
   .slides-scroll {
-    height: 100vh;
-    height: 100svh;
     overflow-y: auto;
-    scroll-snap-type: y proximity;
     -webkit-overflow-scrolling: touch;
   }
 
   .slide-section {
     min-height: 100vh;
     min-height: 100svh;
-    scroll-snap-align: start;
   }
 
   .mobile-dots {
