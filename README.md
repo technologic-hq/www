@@ -1,42 +1,33 @@
-# sv
+# Technologic
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Modular consumer electronics. Built to last. Built to scale. Built for what comes next.
 
-## Creating a project
+**[technologic.computer](https://technologic.computer)**
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```sh
-# create a new project
-npx sv create my-app
-```
-
-To recreate this project with the same configuration:
+## Setup
 
 ```sh
-# recreate this project
-npx sv create --template minimal --types ts --install npm www
+bun install
+cp .env.example .env  # fill in Supabase credentials
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Development
 
 ```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+bun run dev
 ```
 
-## Building
-
-To create a production version of your app:
+## Build
 
 ```sh
-npm run build
+bun run build
 ```
 
-You can preview the production build with `npm run preview`.
+Static output goes to `build/`. Deployed to GitHub Pages via Actions on push to `main`.
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+## Stack
+
+- SvelteKit + Svelte 5
+- Static adapter (GitHub Pages)
+- Supabase (email capture)
+- Roboto Flex variable font
