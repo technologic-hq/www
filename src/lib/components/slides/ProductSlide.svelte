@@ -26,11 +26,12 @@
     style="right: 30%; top: 20%; opacity: 0.06;"
   />
   <Pad>
-    <Label c={C.yellow}>First Product</Label>
+    <Label c={C.yellow}>Proof of Concept</Label>
     <h2>The Player</h2>
     <p class="subtitle">
-      A modular digital audio player. Retro form factor, modern architecture.
-      The beachhead that proves the interconnect works across components.
+      The business is the interconnect platform. The Player proves it works.
+      A modular digital audio player — retro form factor, modern architecture —
+      built entirely on the standard to validate it across real components.
     </p>
     <div class="modules-grid">
       {#each modules as m}
