@@ -54,7 +54,6 @@
 </script>
 
 <Slide bg={C.black}>
-  <Rule w="76%" h={1} c={C.white} style="top: 52%; left: 10%; opacity: 0.06;" />
   <Pad>
     <Label c={C.yellow}>Roadmap</Label>
     <h2>From one device to an ecosystem.</h2>
