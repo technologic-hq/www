@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technologic Player — Concept Render</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+      min-height: 100vh;
+      overflow: hidden;
+    }
+    
+    #canvas-container {
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+      cursor: grab;
+    }
+    
+    #canvas-container:active {
+      cursor: grabbing;
+    }
+    
+    .ui-overlay {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      color: white;
+      z-index: 100;
+      pointer-events: none;
+    }
+    
+    .logo {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 4px;
+    }
+    
+    .tagline {
+      font-size: 13px;
+      opacity: 0.6;
+      font-weight: 400;
+    }
+    
+    .architecture-label {
+      margin-top: 20px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0.5;
+    }
+    
+    .architecture-stack {
+      margin-top: 8px;
+      font-size: 12px;
+      line-height: 1.6;
+      opacity: 0.8;
+    }
+    
+    .architecture-stack span {
+      display: block;
+      padding: 4px 0;
+      border-left: 2px solid rgba(255,255,255,0.3);
+      padding-left: 10px;
+      margin-left: 4px;
+    }
+    
+    .architecture-stack span.highlight {
+      border-left-color: #FFE66D;
+      color: #FFE66D;
+    }
+    
+    .module-info {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      right: 200px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      z-index: 100;
+      pointer-events: none;
+    }
+    
+    .module-tag {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .module-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+    
+    .controls-hint {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      color: white;
+      opacity: 0.5;
+      font-size: 12px;
+      text-align: right;
+      z-index: 100;
+      pointer-events: none;
+    }
+    
+    .btn-group {
+      position: absolute;
+      bottom: 24px;
+      right: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 100;
+    }
+    
+    .view-btn {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 12px 20px;
+      border-radius: 25px;
+      font-size: 13px;
+      color: white;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .view-btn:hover {
+      background: rgba(255,255,255,0.25);
+    }
+    
+    .view-btn.active {
+      background: rgba(255, 230, 109, 0.3);
+      border-color: #FFE66D;
+    }
+    
+    .selection-info {
+      position: absolute;
+      top: 50%;
+      right: 24px;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 16px 20px;
+      border-radius: 12px;
+      color: white;
+      font-size: 13px;
+      z-index: 100;
+      min-width: 200px;
+      max-width: 240px;
+      display: none;
+    }
+    
+    .selection-info.visible {
+      display: block;
+    }
+    
+    .selection-info h3 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #FFE66D;
+    }
+    
+    .selection-info p {
+      opacity: 0.8;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div id="canvas-container"></div>
+  
+  <div class="ui-overlay">
+    <div class="logo">Technologic</div>
+    <div class="tagline">The Player — Concept Render</div>
+    
+    <div class="architecture-label">Architecture Stack</div>
+    <div class="architecture-stack">
+      <span>Screen (OLED)</span>
+      <span class="highlight">Breadboard (Brain + Grid)</span>
+      <span>Modules (Full Back)</span>
+    </div>
+  </div>
+  
+  <div class="controls-hint">
+    Drag to rotate<br>
+    Scroll to zoom<br>
+    Click to select
+  </div>
+  
+  <div class="btn-group">
+    <button class="view-btn" id="explodeBtn">Explode View</button>
+    <button class="view-btn" id="flipBtn">Flip Device</button>
+  </div>
+  
+  <div class="selection-info" id="selectionInfo">
+    <h3 id="selectionTitle">Component</h3>
+    <p id="selectionDesc">Description</p>
+  </div>
+  
+  <div class="module-info">
+    <div class="module-tag">
+      <div class="module-dot" style="background: #FF6B6B;"></div>
+      DAC
+    </div>
+    <div class="module-tag">
+      <div class="module-dot" style="background: #4ECDC4;"></div>
+      Amp
+    </div>
+    <div class="module-tag">
+      <div class="module-dot" style="background: #FFE66D;"></div>
+      Battery
+    </div>
+    <div class="module-tag">
+      <div class="module-dot" style="background: #95E1D3;"></div>
+      Storage
+    </div>
+    <div class="module-tag">
+      <div class="module-dot" style="background: #DDA0FF;"></div>
+      Wireless
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setClearColor(0x1a1a2e, 1);
+    document.getElementById('canvas-container').appendChild(renderer.domElement);
+    
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+    let selectedObject = null;
+    let hoveredObject = null;
+    
+    // Lighting
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+    scene.add(ambientLight);
+    
+    const mainLight = new THREE.DirectionalLight(0xffffff, 0.8);
+    mainLight.position.set(5, 8, 10);
+    scene.add(mainLight);
+    
+    const fillLight = new THREE.DirectionalLight(0x4ECDC4, 0.2);
+    fillLight.position.set(-5, 0, -5);
+    scene.add(fillLight);
+    
+    const backLight = new THREE.DirectionalLight(0xFFE66D, 0.15);
+    backLight.position.set(0, -3, -8);
+    scene.add(backLight);
+    
+    // Device dimensions
+    const deviceWidth = 2.6;
+    const deviceHeight = 3.8;
+    
+    // Layer thicknesses
+    const screenThickness = 0.08;
+    const breadboardThickness = 0.1;
+    const moduleThickness = 0.14;
+    
+    // Z positions (front to back)
+    const screenZ = (screenThickness + breadboardThickness + moduleThickness) / 2;
+    const breadboardZ = screenZ - screenThickness/2 - breadboardThickness/2;
+    const moduleZ = breadboardZ - breadboardThickness/2 - moduleThickness/2;
+    
+    // Grid config
+    const gridCols = 4;
+    const gridRows = 5;
+    const gridPadding = 0.12;
+    const gridGap = 0.05;
+    const gridSquareW = (deviceWidth - gridPadding * 2 - gridGap * (gridCols - 1)) / gridCols;
+    const gridSquareH = (deviceHeight - gridPadding * 2 - gridGap * (gridRows - 1)) / gridRows;
+    
+    // Colors
+    const moduleColors = {
+      dac: 0xFF6B6B,
+      amp: 0x4ECDC4,
+      battery: 0xFFE66D,
+      storage: 0x95E1D3,
+      wireless: 0xDDA0FF
+    };
+    
+    // Device group
+    const deviceGroup = new THREE.Group();
+    const explodableItems = [];
+    const selectableItems = [];
+    
+    // Component info
+    const componentInfo = {
+      'Screen': { title: 'OLED Display', desc: '2.8" 320×480 AMOLED. Deep blacks, 120Hz refresh. Swappable for e-ink variant.' },
+      'Breadboard': { title: 'Breadboard (Brain + Grid)', desc: 'RISC-V MCU, power management, and universal 4×5 connector grid. The heart of the device.' },
+      'DAC': { title: 'DAC Module', desc: 'ES9038Q2M chip. 32-bit/384kHz, -120dB THD+N. Swappable for different sound signatures.' },
+      'Amp': { title: 'Amplifier Module', desc: 'Class-A headphone amp. 150mW @ 32Ω. Drives any headphone from IEMs to planars.' },
+      'Battery': { title: 'Battery Module', desc: '4000mAh Li-Po. Hot-swappable with 30-second buffer. ~40 hours playback.' },
+      'Storage': { title: 'Storage Module', desc: 'NVMe slot, up to 2TB. High-speed USB4 transfer. Your entire FLAC library.' },
+      'Wireless': { title: 'Wireless Module', desc: 'Bluetooth 5.3 LE Audio + aptX Lossless. WiFi 6 for streaming. Antenna integrated.' },
+      'PlayButton': { title: 'Play / Pause', desc: 'Tactile click with haptic feedback.' },
+      'PrevButton': { title: 'Previous Track', desc: 'Hold for rewind.' },
+      'NextButton': { title: 'Next Track', desc: 'Hold for fast-forward.' }
+    };
+    
+    function createMaterial(color, metalness = 0.1, roughness = 0.3) {
+      return new THREE.MeshStandardMaterial({
+        color: color,
+        metalness: metalness,
+        roughness: roughness
+      });
+    }
+    
+    function createHighlightMaterial(baseColor) {
+      return new THREE.MeshStandardMaterial({
+        color: baseColor,
+        metalness: 0.2,
+        roughness: 0.2,
+        emissive: baseColor,
+        emissiveIntensity: 0.4
+      });
+    }
+    
+    // ========== LAYER 1: SCREEN ==========
+    const screenBezelMat = createMaterial(0x1a1a1a, 0.3, 0.4);
+    const screenBezelGeo = new THREE.BoxGeometry(deviceWidth, deviceHeight, screenThickness);
+    const screenBezel = new THREE.Mesh(screenBezelGeo, screenBezelMat);
+    screenBezel.position.z = screenZ;
+    screenBezel.userData = { layer: 'screen', originalZ: screenZ, explodeOffset: 0.8, name: 'Screen', baseColor: 0x1a1a1a, baseMaterial: screenBezelMat };
+    explodableItems.push(screenBezel);
+    selectableItems.push(screenBezel);
+    deviceGroup.add(screenBezel);
+    
+    // Screen display (inset, solid black)
+    const displayW = deviceWidth - 0.25;
+    const displayH = deviceHeight - 0.4;
+    const screenDisplayMat = createMaterial(0x050508, 0.1, 0.05);
+    const screenDisplayGeo = new THREE.BoxGeometry(displayW, displayH, 0.01);
+    const screenDisplay = new THREE.Mesh(screenDisplayGeo, screenDisplayMat);
+    screenDisplay.position.set(0, 0.05, screenZ + screenThickness/2 + 0.005);
+    screenDisplay.userData = { layer: 'screen', originalZ: screenDisplay.position.z, explodeOffset: 0.8 };
+    explodableItems.push(screenDisplay);
+    deviceGroup.add(screenDisplay);
+    
+    // Playback buttons on bezel
+    const buttonY = -deviceHeight/2 + 0.15;
+    const buttonZ = screenZ + screenThickness/2;
+    const buttonConfigs = [
+      { x: -0.45, name: 'PrevButton', color: 0x333333 },
+      { x: 0, name: 'PlayButton', color: 0xFF6B6B },
+      { x: 0.45, name: 'NextButton', color: 0x333333 }
+    ];
+    
+    buttonConfigs.forEach(cfg => {
+      const btnGeo = new THREE.CylinderGeometry(0.1, 0.1, 0.05, 24);
+      const btnMat = createMaterial(cfg.color, 0.2, 0.3);
+      const btn = new THREE.Mesh(btnGeo, btnMat);
+      btn.rotation.x = Math.PI / 2;
+      btn.position.set(cfg.x, buttonY, buttonZ + 0.025);
+      btn.userData = { 
+        layer: 'screen', 
+        originalZ: buttonZ + 0.025, 
+        explodeOffset: 0.8, 
+        name: cfg.name,
+        baseColor: cfg.color,
+        baseMaterial: btnMat
+      };
+      explodableItems.push(btn);
+      selectableItems.push(btn);
+      deviceGroup.add(btn);
+    });
+    
+    // ========== LAYER 2: BREADBOARD (Brain + Grid) ==========
+    const breadboardMat = createMaterial(0x1a3a1a, 0.2, 0.5);
+    const breadboardGeo = new THREE.BoxGeometry(deviceWidth - 0.04, deviceHeight - 0.04, breadboardThickness);
+    const breadboard = new THREE.Mesh(breadboardGeo, breadboardMat);
+    breadboard.position.z = breadboardZ;
+    breadboard.userData = { layer: 'breadboard', originalZ: breadboardZ, explodeOffset: 0, name: 'Breadboard', baseColor: 0x1a3a1a, baseMaterial: breadboardMat };
+    explodableItems.push(breadboard);
+    selectableItems.push(breadboard);
+    deviceGroup.add(breadboard);
+    
+    // CPU/brain chip on breadboard (front side)
+    const cpuGeo = new THREE.BoxGeometry(0.4, 0.4, 0.02);
+    const cpuMat = createMaterial(0x0a0a0a, 0.8, 0.2);
+    const cpu = new THREE.Mesh(cpuGeo, cpuMat);
+    cpu.position.set(0, 0.6, breadboardZ + breadboardThickness/2 + 0.01);
+    cpu.userData = { layer: 'breadboard', originalZ: cpu.position.z, explodeOffset: 0 };
+    explodableItems.push(cpu);
+    deviceGroup.add(cpu);
+    
+    // Support chips
+    const smallChipGeo = new THREE.BoxGeometry(0.12, 0.12, 0.015);
+    const chipPositions = [[-0.5, 0.3], [0.5, 0.3], [-0.6, -0.2], [0.6, -0.2], [-0.3, -0.5], [0.3, -0.5]];
+    chipPositions.forEach(pos => {
+      const chip = new THREE.Mesh(smallChipGeo, cpuMat);
+      chip.position.set(pos[0], pos[1], breadboardZ + breadboardThickness/2 + 0.008);
+      chip.userData = { layer: 'breadboard', originalZ: chip.position.z, explodeOffset: 0 };
+      explodableItems.push(chip);
+      deviceGroup.add(chip);
+    });
+    
+    // Grid connector pads on back of breadboard
+    const connectorMat = createMaterial(0xd4af37, 0.9, 0.3);
+    const gridStartX = -deviceWidth/2 + gridPadding + gridSquareW/2;
+    const gridStartY = -deviceHeight/2 + gridPadding + gridSquareH/2;
+    
+    for (let row = 0; row < gridRows; row++) {
+      for (let col = 0; col < gridCols; col++) {
+        const x = gridStartX + col * (gridSquareW + gridGap);
+        const y = gridStartY + row * (gridSquareH + gridGap);
+        
+        // Connector pad
+        const padGeo = new THREE.BoxGeometry(gridSquareW * 0.5, gridSquareH * 0.5, 0.015);
+        const pad = new THREE.Mesh(padGeo, connectorMat);
+        pad.position.set(x, y, breadboardZ - breadboardThickness/2 - 0.008);
+        pad.userData = { layer: 'breadboard', originalZ: pad.position.z, explodeOffset: 0 };
+        explodableItems.push(pad);
+        deviceGroup.add(pad);
+      }
+    }
+    
+    // ========== LAYER 3: MODULES (Full Back Coverage) ==========
+    // Modules are defined by which grid squares they occupy
+    // Grid is 4 cols x 5 rows, covering entire back
+    const moduleConfigs = [
+      { gridPos: [0, 4], size: [2, 1], color: moduleColors.dac, name: 'DAC' },
+      { gridPos: [2, 4], size: [2, 1], color: moduleColors.amp, name: 'Amp' },
+      { gridPos: [0, 1], size: [2, 3], color: moduleColors.battery, name: 'Battery' },
+      { gridPos: [2, 2], size: [2, 2], color: moduleColors.storage, name: 'Storage' },
+      { gridPos: [2, 1], size: [1, 1], color: moduleColors.wireless, name: 'Wireless' },
+      { gridPos: [3, 1], size: [1, 1], color: 0x888888, name: 'Wireless' }, // Second wireless unit
+      { gridPos: [0, 0], size: [2, 1], color: 0x666666, name: 'Storage' }, // Extra storage
+      { gridPos: [2, 0], size: [2, 1], color: 0x555555, name: 'Storage' }  // Extra storage
+    ];
+    
+    // Reconfigure to proper full coverage
+    const properModules = [
+      { gridPos: [0, 4], size: [2, 1], color: moduleColors.dac, name: 'DAC' },
+      { gridPos: [2, 4], size: [2, 1], color: moduleColors.amp, name: 'Amp' },
+      { gridPos: [0, 1], size: [2, 3], color: moduleColors.battery, name: 'Battery' },
+      { gridPos: [2, 1], size: [2, 3], color: moduleColors.battery, name: 'Battery' },
+      { gridPos: [0, 0], size: [1, 1], color: moduleColors.storage, name: 'Storage' },
+      { gridPos: [1, 0], size: [1, 1], color: moduleColors.wireless, name: 'Wireless' },
+      { gridPos: [2, 0], size: [2, 1], color: 0x444444, name: 'Storage' }
+    ];
+    
+    properModules.forEach((config) => {
+      const modW = config.size[0] * gridSquareW + (config.size[0] - 1) * gridGap;
+      const modH = config.size[1] * gridSquareH + (config.size[1] - 1) * gridGap;
+      
+      const modX = gridStartX + config.gridPos[0] * (gridSquareW + gridGap) + modW/2 - gridSquareW/2;
+      const modY = gridStartY + config.gridPos[1] * (gridSquareH + gridGap) + modH/2 - gridSquareH/2;
+      
+      const modMat = createMaterial(config.color, 0.1, 0.35);
+      const modGeo = new THREE.BoxGeometry(modW - 0.02, modH - 0.02, moduleThickness);
+      const mod = new THREE.Mesh(modGeo, modMat);
+      mod.position.set(modX, modY, moduleZ);
+      mod.userData = { 
+        layer: 'module', 
+        originalZ: moduleZ, 
+        explodeOffset: -0.8,
+        name: config.name,
+        baseColor: config.color,
+        baseMaterial: modMat
+      };
+      explodableItems.push(mod);
+      selectableItems.push(mod);
+      deviceGroup.add(mod);
+      
+      // Module label indent
+      const labelGeo = new THREE.BoxGeometry(modW * 0.4, 0.05, 0.01);
+      const labelMat = new THREE.MeshBasicMaterial({ color: 0x000000 });
+      const label = new THREE.Mesh(labelGeo, labelMat);
+      label.position.set(modX, modY, moduleZ - moduleThickness/2 - 0.005);
+      label.userData = { layer: 'module', originalZ: label.position.z, explodeOffset: -0.8 };
+      explodableItems.push(label);
+      deviceGroup.add(label);
+      
+      // Connector pins (interface with breadboard)
+      const pinGeo = new THREE.CylinderGeometry(0.025, 0.025, 0.025, 8);
+      const pinMat = createMaterial(0xd4af37, 0.9, 0.3);
+      
+      for (let py = 0; py < config.size[1]; py++) {
+        for (let px = 0; px < config.size[0]; px++) {
+          const pinX = modX - modW/2 + gridSquareW/2 + px * (gridSquareW + gridGap);
+          const pinY = modY - modH/2 + gridSquareH/2 + py * (gridSquareH + gridGap);
+          const pin = new THREE.Mesh(pinGeo, pinMat);
+          pin.rotation.x = Math.PI / 2;
+          pin.position.set(pinX, pinY, moduleZ + moduleThickness/2 + 0.012);
+          pin.userData = { layer: 'module', originalZ: moduleZ + moduleThickness/2 + 0.012, explodeOffset: -0.8 };
+          explodableItems.push(pin);
+          deviceGroup.add(pin);
+        }
+      }
+    });
+    
+    // ========== PORTS ==========
+    // Headphone jack (side)
+    const jackGeo = new THREE.CylinderGeometry(0.05, 0.05, 0.08, 16);
+    const jackMat = createMaterial(0x1a1a1a, 0.9, 0.2);
+    const jack = new THREE.Mesh(jackGeo, jackMat);
+    jack.rotation.z = Math.PI / 2;
+    jack.position.set(deviceWidth/2 + 0.02, 0.8, breadboardZ);
+    deviceGroup.add(jack);
+    
+    // USB-C (bottom)
+    const usbGeo = new THREE.BoxGeometry(0.2, 0.06, 0.08);
+    const usb = new THREE.Mesh(usbGeo, jackMat);
+    usb.position.set(0, -deviceHeight/2, breadboardZ);
+    deviceGroup.add(usb);
+    
+    scene.add(deviceGroup);
+    
+    camera.position.set(3, 2, 5);
+    camera.lookAt(0, 0, 0);
+    
+    // Interaction
+    let isDragging = false;
+    let previousMousePosition = { x: 0, y: 0 };
+    let targetRotation = { x: 0.15, y: 0.4 };
+    let currentRotation = { x: 0.15, y: 0.4 };
+    let isExploded = false;
+    let mouseDownTime = 0;
+    let targetZoom = 5.5;
+    
+    const selectionInfo = document.getElementById('selectionInfo');
+    const selectionTitle = document.getElementById('selectionTitle');
+    const selectionDesc = document.getElementById('selectionDesc');
+    
+    function showSelection(name) {
+      const info = componentInfo[name];
+      if (info) {
+        selectionTitle.textContent = info.title;
+        selectionDesc.textContent = info.desc;
+        selectionInfo.classList.add('visible');
+      }
+    }
+    
+    function hideSelection() {
+      selectionInfo.classList.remove('visible');
+    }
+    
+    function highlightObject(obj) {
+      if (obj && obj.userData.baseColor !== undefined) {
+        obj.material = createHighlightMaterial(obj.userData.baseColor);
+      }
+    }
+    
+    function unhighlightObject(obj) {
+      if (obj && obj.userData.baseMaterial) {
+        obj.material = obj.userData.baseMaterial;
+      }
+    }
+    
+    renderer.domElement.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      mouseDownTime = Date.now();
+      previousMousePosition = { x: e.clientX, y: e.clientY };
+    });
+    
+    renderer.domElement.addEventListener('mousemove', (e) => {
+      mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+      mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+      
+      if (isDragging) {
+        const delta = {
+          x: e.clientX - previousMousePosition.x,
+          y: e.clientY - previousMousePosition.y
+        };
+        targetRotation.y += delta.x * 0.01;
+        targetRotation.x += delta.y * 0.01;
+        targetRotation.x = Math.max(-Math.PI/2, Math.min(Math.PI/2, targetRotation.x));
+        previousMousePosition = { x: e.clientX, y: e.clientY };
+      }
+      
+      raycaster.setFromCamera(mouse, camera);
+      const intersects = raycaster.intersectObjects(selectableItems);
+      
+      if (hoveredObject && hoveredObject !== selectedObject) {
+        unhighlightObject(hoveredObject);
+      }
+      
+      if (intersects.length > 0) {
+        const obj = intersects[0].object;
+        if (obj !== selectedObject) {
+          hoveredObject = obj;
+          highlightObject(hoveredObject);
+        }
+        renderer.domElement.style.cursor = 'pointer';
+      } else {
+        hoveredObject = null;
+        renderer.domElement.style.cursor = 'grab';
+      }
+    });
+    
+    renderer.domElement.addEventListener('mouseup', (e) => {
+      const clickDuration = Date.now() - mouseDownTime;
+      
+      if (clickDuration < 200) {
+        raycaster.setFromCamera(mouse, camera);
+        const intersects = raycaster.intersectObjects(selectableItems);
+        
+        if (intersects.length > 0) {
+          const obj = intersects[0].object;
+          if (selectedObject && selectedObject !== obj) {
+            unhighlightObject(selectedObject);
+          }
+          selectedObject = obj;
+          highlightObject(selectedObject);
+          if (obj.userData.name) {
+            showSelection(obj.userData.name);
+          }
+        } else {
+          if (selectedObject) {
+            unhighlightObject(selectedObject);
+            selectedObject = null;
+          }
+          hideSelection();
+        }
+      }
+      isDragging = false;
+    });
+    
+    renderer.domElement.addEventListener('mouseleave', () => { isDragging = false; });
+    
+    renderer.domElement.addEventListener('touchstart', (e) => {
+      isDragging = true;
+      mouseDownTime = Date.now();
+      previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    });
+    
+    renderer.domElement.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      const delta = {
+        x: e.touches[0].clientX - previousMousePosition.x,
+        y: e.touches[0].clientY - previousMousePosition.y
+      };
+      targetRotation.y += delta.x * 0.01;
+      targetRotation.x += delta.y * 0.01;
+      targetRotation.x = Math.max(-Math.PI/2, Math.min(Math.PI/2, targetRotation.x));
+      previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    });
+    
+    renderer.domElement.addEventListener('touchend', () => { isDragging = false; });
+    
+    renderer.domElement.addEventListener('wheel', (e) => {
+      targetZoom += e.deltaY * 0.01;
+      targetZoom = Math.max(3, Math.min(10, targetZoom));
+    });
+    
+    document.getElementById('explodeBtn').addEventListener('click', function() {
+      isExploded = !isExploded;
+      this.textContent = isExploded ? 'Collapse View' : 'Explode View';
+      this.classList.toggle('active', isExploded);
+    });
+    
+    document.getElementById('flipBtn').addEventListener('click', () => {
+      targetRotation.y += Math.PI;
+    });
+    
+    function animate() {
+      requestAnimationFrame(animate);
+      
+      currentRotation.x += (targetRotation.x - currentRotation.x) * 0.08;
+      currentRotation.y += (targetRotation.y - currentRotation.y) * 0.08;
+      deviceGroup.rotation.x = currentRotation.x;
+      deviceGroup.rotation.y = currentRotation.y;
+      
+      const dist = camera.position.length();
+      const newDist = dist + (targetZoom - dist) * 0.08;
+      camera.position.normalize().multiplyScalar(newDist);
+      camera.lookAt(0, 0, 0);
+      
+      explodableItems.forEach((mesh) => {
+        if (mesh.userData.originalZ !== undefined) {
+          const offset = isExploded ? mesh.userData.explodeOffset : 0;
+          const targetZ = mesh.userData.originalZ + offset;
+          mesh.position.z += (targetZ - mesh.position.z) * 0.08;
+        }
+      });
+      
+      if (!isDragging) {
+        targetRotation.y += 0.0008;
+      }
+      
+      renderer.render(scene, camera);
+    }
+    
+    animate();
+    
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+</body>
+</html>
