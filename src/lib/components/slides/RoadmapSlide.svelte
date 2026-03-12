@@ -3,8 +3,6 @@
   import Slide from "../Slide.svelte";
   import Pad from "../Pad.svelte";
   import Label from "../Label.svelte";
-  import Rule from "../primitives/Rule.svelte";
-
   const phases = [
     {
       phase: "01",
@@ -73,6 +71,11 @@
       Each phase shares the same interconnect standard. Every module sold in
       Phase 1 works in Phase 4.
     </div>
+    <div class="vision-close">
+      When humanity becomes a spacefaring civilization, modularity won't be a
+      nice-to-have. It will be how everything is built.
+      <span class="starting-now">We're starting now.</span>
+    </div>
   </Pad>
 </Slide>
 
@@ -123,6 +126,19 @@
     font-size: 12px;
     color: oklch(56.36% 0.0176 86.46);
     max-width: 500px;
+  }
+  .vision-close {
+    margin-top: 12px;
+    font-size: 13px;
+    color: oklch(95.68% 0.012 79.78 / 0.6);
+    line-height: 1.6;
+    font-style: italic;
+    max-width: 500px;
+  }
+  .starting-now {
+    color: oklch(74.98% 0.1407 87.06);
+    font-weight: 700;
+    font-style: normal;
   }
 
   @media (max-width: 767px) {

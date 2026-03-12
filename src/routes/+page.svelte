@@ -3,21 +3,22 @@
   import CoverSlide from "$lib/components/slides/CoverSlide.svelte";
   import HookSlide from "$lib/components/slides/HookSlide.svelte";
   import ProblemSlide from "$lib/components/slides/ProblemSlide.svelte";
+  import TeamSlide from "$lib/components/slides/TeamSlide.svelte";
   import WhyFailingSlide from "$lib/components/slides/WhyFailingSlide.svelte";
   import SolutionSlide from "$lib/components/slides/SolutionSlide.svelte";
   import SpaceSlide from "$lib/components/slides/SpaceSlide.svelte";
   import WhyNowSlide from "$lib/components/slides/WhyNowSlide.svelte";
   import ProductSlide from "$lib/components/slides/ProductSlide.svelte";
+  import UnitEconomicsSlide from "$lib/components/slides/UnitEconomicsSlide.svelte";
   import MarketSlide from "$lib/components/slides/MarketSlide.svelte";
   import RoadmapSlide from "$lib/components/slides/RoadmapSlide.svelte";
   import BusinessSlide from "$lib/components/slides/BusinessSlide.svelte";
   import CompetitionSlide from "$lib/components/slides/CompetitionSlide.svelte";
-  import TeamSlide from "$lib/components/slides/TeamSlide.svelte";
   import AskSlide from "$lib/components/slides/AskSlide.svelte";
-  import VisionSlide from "$lib/components/slides/VisionSlide.svelte";
   import ContactSlide from "$lib/components/slides/ContactSlide.svelte";
   import DownloadButton from "$lib/components/DownloadButton.svelte";
   import EmailBar from "$lib/components/EmailBar.svelte";
+  import ArrowIcon from "$lib/components/ArrowIcon.svelte";
   import type { Component } from "svelte";
 
   const allSlides: {
@@ -29,6 +30,7 @@
     { id: "cover", component: CoverSlide, label: "Cover", dark: false },
     { id: "hook", component: HookSlide, label: "Thesis", dark: true },
     { id: "problem", component: ProblemSlide, label: "Problem", dark: false },
+    { id: "team", component: TeamSlide, label: "Founder", dark: true },
     {
       id: "failing",
       component: WhyFailingSlide,
@@ -44,6 +46,12 @@
     { id: "space", component: SpaceSlide, label: "Space", dark: true },
     { id: "whynow", component: WhyNowSlide, label: "Why Now", dark: true },
     { id: "product", component: ProductSlide, label: "Product", dark: false },
+    {
+      id: "unit-economics",
+      component: UnitEconomicsSlide,
+      label: "Economics",
+      dark: false,
+    },
     { id: "market", component: MarketSlide, label: "Market", dark: false },
     { id: "roadmap", component: RoadmapSlide, label: "Roadmap", dark: true },
     {
@@ -58,9 +66,7 @@
       label: "Landscape",
       dark: false,
     },
-    { id: "team", component: TeamSlide, label: "Team", dark: true },
     { id: "ask", component: AskSlide, label: "The Ask", dark: true },
-    { id: "vision", component: VisionSlide, label: "Vision", dark: true },
     { id: "contact", component: ContactSlide, label: "Contact", dark: false },
   ];
 
@@ -226,19 +232,7 @@
           onclick={prev}
           aria-label="Previous slide"
         >
-          <svg
-            width="15"
-            height="15"
-            viewBox="0 0 15 15"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            ><path
-              d="M6.85355 3.14645C7.04882 3.34171 7.04882 3.65829 6.85355 3.85355L3.70711 7H12.5C12.7761 7 13 7.22386 13 7.5C13 7.77614 12.7761 8 12.5 8H3.70711L6.85355 11.1464C7.04882 11.3417 7.04882 11.6583 6.85355 11.8536C6.65829 12.0488 6.34171 12.0488 6.14645 11.8536L2.14645 7.85355C1.95118 7.65829 1.95118 7.34171 2.14645 7.14645L6.14645 3.14645C6.34171 2.95118 6.65829 2.95118 6.85355 3.14645Z"
-              fill="currentColor"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-            ></path></svg
-          >
+          <ArrowIcon />
         </button>
         <button
           class="nav-btn next"
@@ -247,20 +241,7 @@
           onclick={next}
           aria-label="Next slide"
         >
-          <svg
-            width="15"
-            height="15"
-            viewBox="0 0 15 15"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            style="transform: scaleX(-1);"
-            ><path
-              d="M6.85355 3.14645C7.04882 3.34171 7.04882 3.65829 6.85355 3.85355L3.70711 7H12.5C12.7761 7 13 7.22386 13 7.5C13 7.77614 12.7761 8 12.5 8H3.70711L6.85355 11.1464C7.04882 11.3417 7.04882 11.6583 6.85355 11.8536C6.65829 12.0488 6.34171 12.0488 6.14645 11.8536L2.14645 7.85355C1.95118 7.65829 1.95118 7.34171 2.14645 7.14645L6.14645 3.14645C6.34171 2.95118 6.65829 2.95118 6.85355 3.14645Z"
-              fill="currentColor"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-            ></path></svg
-          >
+          <ArrowIcon direction="right" />
         </button>
       </div>
     </div>

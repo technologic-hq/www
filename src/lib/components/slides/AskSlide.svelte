@@ -16,8 +16,9 @@
 
   const milestones = [
     "Production-ready Player prototype",
-    "Validated interconnect standard",
-    "Module ecosystem foundation",
+    "Interconnect architecture tested and validated",
+    "5,000-unit initial production run",
+    "First modules shipping to real users",
     "Crowdfunding campaign launch",
     "Path to seed round",
   ];

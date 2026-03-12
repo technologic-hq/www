@@ -1,6 +1,7 @@
 <script lang="ts">
   import { Canvas } from '@threlte/core';
   import PlayerScene from './PlayerScene.svelte';
+  import ArrowIcon from '$lib/components/ArrowIcon.svelte';
 
   let isExploded = $state(false);
   let flipCount = $state(0);
@@ -79,7 +80,12 @@
   </div>
 
   <div class="ui-overlay" class:hidden-mobile={selected}>
-    <div class="logo">Technologic</div>
+    <div class="logo-row">
+      <a href="/" class="back-btn" aria-label="Back to deck">
+        <ArrowIcon />
+      </a>
+      <div class="logo">Technologic</div>
+    </div>
     <div class="tagline">The Player — Concept Render</div>
   </div>
 
@@ -143,6 +149,30 @@
     color: oklch(21.78% 0 0);
     z-index: 100;
     pointer-events: none;
+  }
+
+  .logo-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .back-btn {
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    background: oklch(21.78% 0 0);
+    color: oklch(95.68% 0.012 79.78);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .back-btn:hover {
+    opacity: 0.8;
   }
 
   .logo {

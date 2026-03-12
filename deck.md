@@ -1,290 +1,315 @@
 # TECHNOLOGIC
 
-## Modular Electronics for Earth and Beyond
+## Modular consumer electronics. Built to last. Built to scale. Built for what comes next.
+
+**PRE-SEED · 2026**
 
 ---
 
 # Slide 1: The Hook
 
 > "The ability to perform in-situ repair of electronics at the component level can **dramatically reduce mission risk** and increase crew independence."
-> — NASA, Component-Level Electronic Assembly Repair (CLEAR) Project
+> NASA, Component-Level Electronic Assembly Repair (CLEAR) Project
 
-**What if the same technology NASA needs for Mars... is exactly what Earth needs right now?**
+**What if the technology NASA needs for Mars is exactly what Earth needs right now?**
 
 ---
 
 # Slide 2: The Problem
 
-## We've built a disposable electronics economy
+## 62 million tonnes of e-waste a year. We recycle less than a quarter of it.
 
-- **62 million tonnes** of e-waste generated annually (growing 5x faster than recycling)
-- Only **22%** is properly recycled — declining to 20% by 2030
-- **$62B** in recoverable materials lost every year
-- **1 in 3** replaced devices still works when discarded
+| **$62B**                               | **22%**                                      | **1 in 3**                                 | **87%**                                                |
+| -------------------------------------- | -------------------------------------------- | ------------------------------------------ | ------------------------------------------------------ |
+| in recoverable materials lost annually | formally recycled (declining to 20% by 2030) | replaced devices still work when discarded | drop in component lifecycles. From 30 years to under 4 |
 
-**The average appliance lifespan dropped from 14 years → under 4 years in two decades.**
+E-waste is growing 5x faster than recycling infrastructure.
 
----
-
-# Slide 3: Why This Matters Beyond Earth
-
-## Modularity isn't a feature. It's survival infrastructure.
-
-**For a Mars mission:**
-
-- Launch windows: every **26 months**
-- Transit time: **6-9 months** each way
-- Cost to ship 1kg to Mars: **$100,000+**
-- You can't Amazon Prime a replacement microwave.
-
-**NASA's conclusion:** Component-level repairability is the only viable path for long-duration missions.
-
-**Our thesis:** What's essential for space is transformative for Earth.
+_Source: UN Global E-waste Monitor 2024_
 
 ---
 
-# Slide 4: The Solution
+# Slide 3: The Founder
 
-## TECHNOLOGIC
+## Suhit Agarwal
 
-A modular electronics platform where every component is:
+24 · Software & Design Engineer · Applied & Computational Mathematics @ USC
 
-- **Swappable** — upgrade or replace individual parts
-- **Repairable** — fix what's broken, not the whole device
-- **Upgradeable** — extend device life by generations
-- **Open** — community-designed modules, published specs
+**Founding Product Engineer, Curio**
+AI hardware startup. Shipped ESP32 firmware and the consumer mobile app end-to-end. Went from chip to App Store alone.
 
-**One standardized interconnect system across product categories.**
+**Founding Engineer, Trufflepig**
+Built the product from zero as founding hire.
 
----
+**Technologic prototyping**
+Built working modular prototype on Raspberry Pi with hot-swappable camera modules. Modules detect on connect, swap without reboot, and degrade cleanly when removed.
 
-# Slide 5: Why Now
+`[PHOTO: Pi prototype with swappable modules visible]`
 
-## Four forces converging
-
-| Force                     | Status                                                                   |
-| ------------------------- | ------------------------------------------------------------------------ |
-| **Regulation**            | EU Right to Repair mandatory by July 2026; 6 US states passed laws       |
-| **Consumer demand**       | 80% willing to pay ~10% premium for sustainability                       |
-| **Technical feasibility** | USB4/Thunderbolt 5 solved the bandwidth problem that killed Project Ara  |
-| **Proven playbook**       | Framework ($45M raised), Fairphone (€87M), Back Market ($5.7B valuation) |
-
-**The market is ready. The tech is ready. The regulation is coming.**
+**Building the team:** In conversation with hardware engineering and industrial design leads. First advisor calls scheduled for March 2026.
 
 ---
 
-# Slide 6: Market Opportunity
+# Slide 4: The Insight
 
-## $1T+ consumer electronics market, zero modular options in most categories
+## Modular hardware keeps failing. The engineering was never the problem.
 
-| Segment                | Market Size            | Modular Players |
-| ---------------------- | ---------------------- | --------------- |
-| Laptops                | $166B                  | Framework ✓     |
-| Smartphones            | $484B                  | Fairphone ✓     |
-| **Kitchen appliances** | **$242B**              | **None**        |
-| **Wearables**          | **$72B**               | **None**        |
-| **Consumer audio**     | **$2.7B** (audiophile) | **None**        |
-| **Smart home**         | **$154B**              | **None**        |
+| Project         | Year    | What happened                                                       |
+| --------------- | ------- | ------------------------------------------------------------------- |
+| **Project Ara** | 2013–16 | Modules 50–100% more expensive. 25% size/weight penalty. Cancelled. |
+| **Phonebloks**  | 2013    | Viral concept, zero product. Inspired Ara, then vanished.           |
+| **LG G5**       | 2016    | Two modules shipped. Abandoned after one generation.                |
+| **Moto Z**      | 2016–18 | 14 Moto Mods launched. Ecosystem died quietly.                      |
 
-**We're starting where no one else is.**
+> Every single attempt lived inside a company whose revenue depended on you replacing the whole device. The incentive structure killed the product before engineering ever could.
 
 ---
 
-# Slide 7: The Product — Starting with Audio
+# Slide 5: The Solution
 
-## Phase 1: The Technologic Player
+## Technologic
 
-A modular, high-fidelity digital audio player with retro soul.
+A modular electronics platform where the business model and the product aren't fighting each other. One standardized interconnect across device categories.
 
-**Why this beachhead:**
+|                                                                                     |                                                                                |
+| ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| **Swappable.** Upgrade or replace individual components. Not the whole device.      | **Repairable.** Fix what's broken. A dead battery doesn't kill a device.       |
+| **Upgradeable.** New processor in two years? Swap the module. Keep everything else. | **Open.** Published specs. Third-party modules. Community-designed expansions. |
 
-- Premium DAPs sell for **$800-$3,700** (Astell&Kern, FiiO)
-- Audiophiles are early adopters who pay for quality
-- No modular option exists
-- Vinyl revival proves retro + quality = demand
-- Small form factor = faster iteration
-
-**Target: $399 base | $599 premium config**
+`[VISUAL: Technologic logo + brand shapes]`
 
 ---
 
-# Slide 8: Product Roadmap
+# Slide 6: Why This Matters Beyond Earth
 
-```
-2026        2027           2028            2029+
-─────────────────────────────────────────────────────
-   │            │              │               │
-   ▼            ▼              ▼               ▼
-┌────────┐  ┌─────────┐  ┌───────────┐  ┌────────────┐
-│ Player │  │Wearables│  │Smart Home │  │ Appliances │
-│(audio) │  │(earbuds,│  │(speakers, │  │ (kitchen,  │
-│        │  │ watch)  │  │  hubs)    │  │  tools)    │
-└────────┘  └─────────┘  └───────────┘  └────────────┘
-    │            │              │               │
-    └────────────┴──────────────┴───────────────┘
-                        │
-            Unified Module Ecosystem
-```
+## On Mars, you can't ship a replacement. Modularity is survival, not just a feature.
 
-**Each product expands the module library. Each module works across products.**
+| **26 months**               | **6–9 months**         | **$200K/kg**                       | **41%**                                    |
+| --------------------------- | ---------------------- | ---------------------------------- | ------------------------------------------ |
+| between Mars launch windows | transit time, each way | to deliver payload to Mars surface | of small satellites fail or partially fail |
+
+The ISS has operated for 25+ years through modular Orbital Replacement Units. But NASA's own CLEAR project found ORU-level replacement is 1,000x less efficient than component-level repair. For Mars, you need modularity at every layer.
+
+> **Our thesis:** What's essential for space is transformative for Earth.
 
 ---
 
-# Slide 9: Business Model
+# Slide 7: Why Now
 
-## Hardware + Ecosystem + Services
+## Four forces. All converging.
 
-| Revenue Stream       | Description                                       |
-| -------------------- | ------------------------------------------------- |
-| **Device sales**     | Base units at healthy margins (target 40%+ gross) |
-| **Module sales**     | Upgrades, replacements, specialty modules         |
-| **Licensing**        | Open spec, certified third-party modules          |
-| **Enterprise/Space** | NASA, ESA, private space companies (longer-term)  |
+**01 · Regulation**
+EU Right to Repair mandatory July 2026. Six US states passed laws. Oregon banned parts pairing entirely.
 
-**LTV multiplier:** A customer who keeps upgrading modules for 10 years >> one-time device sale
+**02 · Consumer demand**
+80% willing to pay ~10% premium for sustainability. Gen Z chooses sustainable over brand names 75% of the time.
+
+**03 · Technical feasibility**
+USB4 and Thunderbolt 5 solved the bandwidth problem that killed Project Ara. EU USB-C mandate standardizes charging across all devices by April 2026.
+
+**04 · Market proof**
+Framework raised $45M, shipped 100K+ laptops. Fairphone: €87M raised, €54M revenue. Back Market: $5.7B valuation.
 
 ---
 
-# Slide 10: Competitive Landscape
+# Slide 8: First Product. The Player
 
-## We're not competing with Framework or Fairphone — we're expanding the map
+## A modular digital audio player. Retro form factor, modern architecture.
+
+The beachhead that proves the interconnect works across components.
+
+| DAC                     | Storage                | Amp                 |
+| ----------------------- | ---------------------- | ------------------- |
+| Swappable audio chipset | Expandable local media | Headphone amplifier |
+| **Wireless**            | **Battery**            | **Display**         |
+| Bluetooth · WiFi        | Hot-swappable power    | Upgradeable screen  |
+
+`[VISUAL: Concept render, assembled view with Technologic logo on face]`
+`[VISUAL: Exploded view showing color-coded module grid. DAC (red), Amp (blue), Battery (yellow), Storage (green), Wireless, Speaker, Screen, Breadboard]`
+
+**$800–$3,700** price range for premium DAPs (Astell&Kern)
+**$107M** portable DAP market
+
+**Why DAPs:** The vinyl revival proved that retro + quality = demand. Audiophiles are early adopters who obsess over components. No modular option exists. And the Breadboard module gives hackers and developers a hardware on-ramp from day one.
+
+---
+
+# Slide 9: Unit Economics
+
+## What The Player costs to build.
+
+**Base unit BOM estimate at 1,000 units:**
+
+| Component             | Part                                               | Est. cost  |
+| --------------------- | -------------------------------------------------- | ---------- |
+| DAC module            | ESS ES9038Q2M (32-bit Sabre)                       | $5–8       |
+| Headphone amp         | ESS ES9602C or discrete Class AB                   | $3–5       |
+| Wireless module       | ESP32-S3 (WiFi + BT 5.0)                           | $2–3       |
+| Display               | 1.3" OLED 128x64 (SH1106)                          | $2–4       |
+| Storage               | microSD slot + controller IC                       | $1         |
+| Battery               | 3,500mAh Li-Po cell + BMS                          | $4–6       |
+| TechLink interconnect | Custom multi-layer PCB + module connectors         | $10–15     |
+| Enclosure             | CNC aluminum (low vol) / injection mold (high vol) | $12–20     |
+| Passives + misc       | USB-C, buttons, capacitors, resistors, crystal osc | $3–5       |
+| Assembly              | Contract manufacturing (Shenzhen, per unit)        | $8–12      |
+| **Total BOM**         |                                                    | **$50–79** |
+
+**Pricing architecture:**
+
+| Config         | What's in the box                                                | Retail   | BOM  | Gross margin |
+| -------------- | ---------------------------------------------------------------- | -------- | ---- | ------------ |
+| **Base**       | ES9038Q2M DAC, 3.5mm out, 32GB, BT/WiFi, standard amp            | **$199** | ~$50 | ~75%         |
+| **Plus**       | Base + balanced 4.4mm amp module, 128GB storage, display upgrade | **$349** | ~$70 | ~80%         |
+| **Enthusiast** | Dual DAC, balanced out, 256GB, full module set + Breadboard      | **$599** | ~$95 | ~84%         |
+
+The base gets someone into the ecosystem at a price point that competes with standalone DAPs. The real revenue engine is modules after purchase: DAC swaps ($49–99), amp upgrades ($59–149), storage expansion ($29–79). A customer who starts at $199 and upgrades two modules over 18 months is worth $350+.
+
+BOM drops 25–35% at 5,000 units with injection molding and volume component pricing.
+
+_Estimates based on component distributor pricing at 1K MOQ. Final BOM requires engineering validation._
+
+---
+
+# Slide 10: Market
+
+## The categories with zero modular options.
+
+| Segment                     | Size                                 |
+| --------------------------- | ------------------------------------ |
+| **Consumer electronics**    | **$1.2T** annually, 5.5–7.8% CAGR    |
+| **Kitchen appliances**      | **$242B**, smart kitchen: 12.4% CAGR |
+| **Climate tech investment** | **$40.5B** in 2025, +8% YoY          |
+
+**Unaddressed categories:** Home appliances, wearables & fitness, smart home devices, consumer audio, kitchen electronics. All with zero modular options.
+
+Sustainable products grow 2.7x faster than conventional. 17% market share, capturing 32% of growth.
+
+---
+
+# Slide 11: Where this goes.
+
+**01 · 2026 · The Player**
+Working prototype → Crowdfunding campaign → First 1,000 units shipped
+
+**02 · 2027 · Expand**
+Second device category → Module marketplace → Third-party developer SDK
+
+**03 · 2028 · Platform**
+Smart home integration → Kitchen electronics → Module licensing program
+
+**04 · 2029+ · Scale**
+Enterprise / space contracts → Open standard consortium → Global manufacturing
+
+Each phase shares the same interconnect standard. Every module sold in Phase 1 works in Phase 4.
+
+When humanity becomes a spacefaring civilization, modularity won't be a nice-to-have. It will be how everything is built. We're starting now.
+
+---
+
+# Slide 12: Business Model
+
+## Compounding revenue, not replacement cycles.
+
+| Stream           | Mix | Description                                      |
+| ---------------- | --- | ------------------------------------------------ |
+| **Device Sales** | 40% | Base units at 40%+ gross margins                 |
+| **Module Sales** | 30% | Upgrades, replacements, specialty components     |
+| **Licensing**    | 20% | Third-party certified modules, open spec revenue |
+| **Enterprise**   | 10% | Space agencies, industrial, defense              |
+
+**LTV multiplier:** A customer upgrading modules for 10 years is worth far more than a single device sale.
+
+**HaaS premium:** Hardware-as-a-Service earns 59% higher median revenue multiples.
+
+---
+
+# Slide 13: Landscape
+
+## The goal is not to compete with Framework but to expand the map.
 
 ```
                     HIGH MODULARITY
                           │
-                          │   ★ TECHNOLOGIC
-                          │     (broad platform)
+                          │     ● TECHNOLOGIC
+                          │       Multi-category platform
          Framework ●      │
-         (laptops)        │
+         $45M · Laptops   │
                           │
     ──────────────────────┼──────────────────────
     SINGLE CATEGORY       │        MULTI-CATEGORY
                           │
          Fairphone ●      │
-         (phones)         │
+         €87M · Phones    │
                           │
+              Apple ·     │    · Samsung
                           │
                     LOW MODULARITY
-                    (traditional OEMs)
 ```
 
-**Big tech won't do this** — their business model depends on planned obsolescence.
+**Why incumbents won't build this:**
+Device upgrade cycles drive repeat purchases. Proprietary parts sold through authorized channels only. Ecosystem lock-in creates switching costs. iFixit-Samsung partnership ended 2024. No interest in repair at scale.
 
 ---
 
-# Slide 11: Traction & Milestones
+# Slide 14: The Ask
 
-## Where we are / Where we're going
-
-**Completed:**
-
-- [ ] Technical architecture defined
-- [ ] Core interconnect spec drafted
-- [ ] Initial industrial design concepts
-
-**Next 12 months:**
-
-- [ ] Working prototype (Q2 2026)
-- [ ] Kickstarter campaign (Q3 2026)
-- [ ] First 1,000 units shipped (Q4 2026)
-
-**Target:** $500K crowdfunding → validates demand, builds community, funds initial production
-
----
-
-# Slide 12: Team
-
-## [Your name / founding team]
-
-_[This slide needs your background, relevant experience, and why you're the right person to build this]_
-
-**Key hires needed:**
-
-- Hardware engineering lead (PCB, interconnects)
-- Industrial designer
-- Firmware engineer
-- Community/marketing
-
----
-
-# Slide 13: The Ask
-
-## Raising $2M Seed
+## Pre-Seed · $1M – $1.5M
 
 **Use of funds:**
-| Category | Allocation |
-|----------|------------|
-| Hardware engineering | 40% |
-| Tooling & first production run | 25% |
-| Design & prototyping | 20% |
-| Operations & community | 15% |
 
-**Milestones this unlocks:**
+| Category                       | Allocation |
+| ------------------------------ | ---------- |
+| Hardware engineering           | 40%        |
+| Tooling & first production run | 25%        |
+| Design & prototyping           | 20%        |
+| Operations & community         | 15%        |
 
-- Production-ready Player design
-- 5,000-unit initial run
-- Module ecosystem foundation
-- Path to Series A
-
----
-
-# Slide 14: The Vision
-
-## We're building infrastructure for a multi-planetary species
-
-**Near-term:** Make electronics that last, that you can fix, that grow with you.
-
-**Long-term:** Become the standard for modular electronics — on Earth, in orbit, on the Moon, on Mars.
-
-> When humanity becomes a space-faring civilization, modularity won't be a nice-to-have.
-> It will be how everything is built.
-
-**We're starting now.**
+**What this gets us to:**
+Production-ready Player prototype · Interconnect architecture tested and validated · 5,000-unit initial production run · First modules shipping to real users · Crowdfunding campaign launch · Path to seed round
 
 ---
 
 # Slide 15: Contact
 
-## TECHNOLOGIC
+## Technologic
 
-**[Your name]**  
-[Email]  
-[Website]
+**Suhit Agarwal**
+suhit@technologic.computer
+San Francisco, CA
 
-_"Modular electronics for Earth and beyond."_
+_Modular electronics for Earth and beyond._
+
+`[LINK/QR: technologic.computer. Interactive prototype, exploded module view, full specs]`
 
 ---
 
-# Appendix Slides (for Q&A)
+# Appendix (for Q&A)
 
 ## A1: Technical Architecture
 
 - Interconnect: USB4-based with custom power delivery
 - Module form factors: S (wearable), M (handheld), L (appliance)
 - Hot-swap capability with graceful degradation
+- Working Raspberry Pi prototype validates core swap mechanism
 
 ## A2: Detailed Financials
 
-_[Unit economics, production costs, margin projections]_
+_Unit economics, BOM estimates, margin projections available on request_
 
-## A3: Regulatory Deep Dive
+## A3: Regulatory Landscape
 
-- EU Right to Repair timeline
-- US state-by-state status
-- Compliance advantages
+- EU Right to Repair timeline and compliance advantages
+- US state-by-state status (Oregon parts pairing ban as leading indicator)
+- Why regulation is pushing the market toward modular-native companies
 
-## A4: NASA/Space Opportunity
+## A4: NASA / Space Opportunity
 
-- In-space manufacturing developments
-- Potential contracts/partnerships
-- Technical requirements alignment
+- CLEAR project findings on component-level repair
+- ISS ORU precedent and limitations
+- How in-space manufacturing developments map to Technologic's architecture
 
 ## A5: Competitive Detail
 
-- Framework: strengths, limitations, why they won't expand here
-- Fairphone: learnings from their journey
-- Why Apple/Samsung won't compete
-
----
-
-_Research appendix with full market data, citations, and sources available upon request._
+- Framework: why laptops-only is a ceiling, not a strategy
+- Fairphone: lessons from B-corp hardware at scale
+- Why Apple/Samsung will never build this (and why that's the point)

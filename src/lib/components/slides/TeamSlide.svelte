@@ -16,7 +16,7 @@
     {
       role: "Founding Engineer",
       co: "Trufflepig",
-      desc: "Built the product from zero as founding hire.",
+      desc: "Built a spreadsheet engine from zero as founding hire.",
       c: C.yellow,
     },
   ];
