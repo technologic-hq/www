@@ -55,7 +55,7 @@ Building the team. Hardware engineering and industrial design leads in conversat
 | **PuzzlePhone** | 2014–17 | Barely shipped.                                                                                 |
 | **LG G5**       | 2016    | Two modules. Needed to sell new phones.                                                         |
 | **Moto Z**      | 2016–18 | 14 Moto Mods. Ecosystem died. Needed upgrade cycles.                                            |
-| **Essential**   | 2017–20 | Sprint exclusive, bad camera, founder scandal. Failed as a phone, not as a modular concept.     |
+| **Essential**   | 2017–20 | Failed as a phone, not as a modular concept.                                                    |
 | **Palm**        | 2009–11 | Beloved product, beloved OS. HP acquired it, new CEO killed it in 49 days to pivot to software. |
 
 Two patterns:

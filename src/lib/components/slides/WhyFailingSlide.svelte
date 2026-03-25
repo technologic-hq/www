@@ -3,7 +3,6 @@
   import Slide from "../Slide.svelte";
   import Pad from "../Pad.svelte";
   import Label from "../Label.svelte";
-  import Rule from "../primitives/Rule.svelte";
 
   const failures = [
     {
@@ -35,7 +34,7 @@
       name: "Essential",
       yr: "2017–20",
       result:
-        "Sprint exclusive, bad camera, founder scandal. Failed as a phone, not as a modular concept.",
+        "Failed as a phone, not as a modular concept.",
     },
     {
       name: "Palm",
@@ -47,7 +46,6 @@
 </script>
 
 <Slide bg={C.white}>
-  <Rule w="100%" h={1} c={C.blue} style="bottom: 13%; opacity: 0.12;" />
   <Pad>
     <Label c={C.blue}>The Graveyard</Label>
     <h2>
@@ -58,10 +56,8 @@
       {#each failures as item}
         <div class="failure-row">
           <div class="dot"></div>
-          <div class="name-col">
-            <span class="name">{item.name}</span>
-            <span class="year">{item.yr}</span>
-          </div>
+          <span class="name">{item.name}</span>
+          <span class="year">{item.yr}</span>
           <span class="result">{item.result}</span>
         </div>
       {/each}
@@ -112,35 +108,41 @@
   .failure-row {
     display: flex;
     align-items: baseline;
-    gap: 12px;
+    gap: 0;
     border-bottom: 1px solid oklch(87.73% 0.0229 87.16);
     padding-bottom: 6px;
   }
+  .failure-row:last-child {
+    border-bottom: none;
+  }
   .dot {
     min-width: 5px;
+    width: 5px;
     height: 5px;
     border-radius: 50%;
     background: oklch(56.36% 0.0176 86.46);
     margin-top: 5px;
+    margin-right: 10px;
     flex-shrink: 0;
-  }
-  .name-col {
-    min-width: 120px;
   }
   .name {
     font-size: 12px;
     font-weight: 700;
     color: oklch(21.78% 0 0);
+    min-width: 90px;
+    flex-shrink: 0;
   }
   .year {
     font-size: 10px;
     color: oklch(56.36% 0.0176 86.46);
-    margin-left: 6px;
+    min-width: 56px;
+    flex-shrink: 0;
   }
   .result {
     font-size: 11px;
     color: oklch(56.36% 0.0176 86.46);
     line-height: 1.4;
+    margin-left: 12px;
   }
   .patterns {
     margin-top: 16px;
