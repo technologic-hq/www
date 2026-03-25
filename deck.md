@@ -82,7 +82,7 @@ One standard across device categories. The comp isn't Framework. It's USB-IF or 
 - Three form factors: S (wearable), M (handheld), L (appliance)
 - Building this board is what the pre-seed funds
 
-**Flywheel:** First-party hardware → third-party modules → more categories → licensing revenue scales independently of device sales.
+**Flywheel:** First-party hardware → third-party modules → more categories → licensing revenue that grows whether or not we sell more devices.
 
 ---
 
@@ -95,7 +95,7 @@ One standard across device categories. The comp isn't Framework. It's USB-IF or 
 | **Traditional** | $300 | $300 | $350 | $350 | $400 | **$1,700**      |
 | **Modular**     | $300 | $80  | $100 | $80  | $120 | **$680**        |
 
-Not a sustainability pitch. A wallet pitch. Sustainability is a side effect of the economics, not the reason people buy.
+Cheaper devices move units. More units mean more people building on The Link. That's when licensing kicks in.
 
 ---
 
@@ -106,7 +106,7 @@ Not a sustainability pitch. A wallet pitch. Sustainability is a side effect of t
 - **Bandwidth solved.** USB4/Thunderbolt 5. EU USB-C mandate April 2026.
 - **Regulation.** EU Right to Repair mandatory July 2026. Six US states. Oregon banned parts pairing.
 - **Proven demand.** Framework: 100K+ laptops, $45M raised. Fairphone: €54M revenue (2024). Back Market: $5.7B valuation.
-- **Cost curves caught up.** Components got small enough and cheap enough. Modular form factors are viable at consumer price points.
+- **Cost curves caught up.** Components got small enough and cheap enough. Modular is finally viable at prices people actually pay.
 
 ---
 
@@ -178,7 +178,7 @@ Incumbents won't build this. Upgrade cycles drive revenue. Proprietary parts cre
 
 **2027 · Expand** → Second category → Module marketplace → Developer SDK
 
-**2028 · Platform** → Smart home → Kitchen → Licensing program
+**2028 · Platform** → Smart home → Kitchen → Licensing
 
 **2029+ · Scale** → Enterprise/space contracts → Open standard consortium
 
@@ -188,7 +188,7 @@ Same interconnect throughout. Every module from Phase 1 works in Phase 4.
 
 # Slide 12: The Long-Term Vision
 
-## Space is the logical extreme of the TCO argument.
+## Space is where this matters most.
 
 6–9 months from the nearest supply chain. $200K/kg to ship a replacement to Mars. Component-level repair isn't a feature, it's the only option.
 

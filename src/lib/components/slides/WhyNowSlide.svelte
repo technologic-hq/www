@@ -32,7 +32,7 @@
       n: "04",
       label: "Cost curves caught up",
       detail:
-        "Components got small enough and cheap enough. Modular form factors are viable at consumer price points.",
+        "Components got small enough and cheap enough. Modular is finally viable at prices people actually pay.",
       accent: C.cream,
     },
   ];

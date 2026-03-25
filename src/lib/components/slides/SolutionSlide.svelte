@@ -56,7 +56,7 @@
     </div>
     <div class="flywheel">
       First-party hardware → third-party modules → more categories → licensing
-      revenue scales independently of device sales.
+      revenue that grows whether or not we sell more devices.
     </div>
     <div class="board-note">
       Building this board is what the pre-seed funds.

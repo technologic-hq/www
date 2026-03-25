@@ -4,12 +4,11 @@
   import Pad from "../Pad.svelte";
   import Label from "../Label.svelte";
   import Circ from "../primitives/Circ.svelte";
-  import Rule from "../primitives/Rule.svelte";
   import ArrowIcon from "../ArrowIcon.svelte";
 
   const modules = [
     { mod: "DAC", desc: "Swappable audio chipset" },
-    { mod: "Storage", desc: "Local media, swappable" },
+    { mod: "Storage", desc: "Swappable NVMe" },
     { mod: "Amp", desc: "Headphone amplifier" },
     { mod: "Wireless", desc: "Bluetooth · WiFi" },
     { mod: "Battery", desc: "Hot-swappable power" },
@@ -20,12 +19,6 @@
 <Slide bg={C.cream}>
   <div class="right-wash"></div>
   <Circ s={10} c={C.red} style="top: 16%; right: 34%; opacity: 0.4;" />
-  <Rule
-    w={1}
-    h={400}
-    c={C.black}
-    style="right: 30%; top: 20%; opacity: 0.06;"
-  />
   <Pad>
     <Label c={C.yellow}>First Product</Label>
     <h2>The Player</h2>

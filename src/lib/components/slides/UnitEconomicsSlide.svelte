@@ -3,7 +3,7 @@
   import Slide from "../Slide.svelte";
   import Pad from "../Pad.svelte";
   import Label from "../Label.svelte";
-  import Rule from "../primitives/Rule.svelte";
+
 
   const years = ["Yr 0", "Yr 2", "Yr 4", "Yr 6", "Yr 8", "10-yr total"];
   const traditional = ["$300", "$300", "$350", "$350", "$400", "$1,700"];
@@ -11,7 +11,6 @@
 </script>
 
 <Slide bg={C.white}>
-  <Rule w="100%" h={1} c={C.red} style="top: 8%; opacity: 0.08;" />
   <Pad>
     <Label c={C.red}>Value Proposition</Label>
     <h2>60% lower cost of ownership over a decade.</h2>
@@ -52,8 +51,7 @@
       </div>
     </div>
     <div class="footnote">
-      Not a sustainability pitch. A wallet pitch. Sustainability is a side
-      effect of the economics, not the reason people buy.
+      Cheaper devices move units. More units mean more people building on The Link. That's when licensing kicks in.
     </div>
   </Pad>
 </Slide>
@@ -147,6 +145,7 @@
     font-weight: 800;
     color: oklch(21.78% 0 0);
   }
+
   .footnote {
     margin-top: auto;
     padding-top: 12px;
@@ -154,7 +153,6 @@
     color: oklch(56.36% 0.0176 86.46);
     line-height: 1.6;
     max-width: 500px;
-    font-style: italic;
   }
 
   @media (max-width: 767px) {
