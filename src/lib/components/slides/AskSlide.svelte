@@ -15,12 +15,11 @@
   ];
 
   const milestones = [
-    "Production-ready Player prototype",
-    "Interconnect architecture tested and validated",
-    "5,000-unit initial production run",
-    "First modules shipping to real users",
-    "Crowdfunding campaign launch",
-    "Path to seed round",
+    "Production-ready Player",
+    "TechLink USB4 board",
+    "5,000-unit run",
+    "Crowdfunding launch",
+    "Path to seed",
   ];
 </script>
 
@@ -34,7 +33,7 @@
   <Tri s={30} c={C.white} style="bottom: 15%; left: 8%; opacity: 0.3;" />
   <Pad>
     <Label c={C.yellow}>The Ask</Label>
-    <h2>Pre-Seed · $1M - $1.5M</h2>
+    <h2>Pre-Seed &middot; $1M – $1.5M</h2>
     <div class="two-col">
       <div class="funds-col">
         <div class="col-header">Use of funds</div>

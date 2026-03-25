@@ -5,191 +5,171 @@
   import Label from "../Label.svelte";
   import Rule from "../primitives/Rule.svelte";
 
-  const bom = [
-    { component: "DAC module", part: "ESS ES9038Q2M (32-bit Sabre)", cost: "$5–8" },
-    { component: "Headphone amp", part: "ESS ES9602C or discrete Class AB", cost: "$3–5" },
-    { component: "Wireless module", part: "ESP32-S3 (WiFi + BT 5.0)", cost: "$2–3" },
-    { component: "Display", part: '1.3" OLED 128x64 (SH1106)', cost: "$2–4" },
-    { component: "Storage", part: "microSD slot + controller IC", cost: "$1" },
-    { component: "Battery", part: "3,500mAh Li-Po cell + BMS", cost: "$4–6" },
-    { component: "TechLink interconnect", part: "Custom multi-layer PCB + connectors", cost: "$10–15" },
-    { component: "Enclosure", part: "CNC aluminum / injection mold", cost: "$12–20" },
-    { component: "Passives + misc", part: "USB-C, buttons, capacitors, etc.", cost: "$3–5" },
-    { component: "Assembly", part: "Contract manufacturing (Shenzhen)", cost: "$8–12" },
-  ];
-
-  const configs = [
-    { name: "Base", detail: "ES9038Q2M DAC, 3.5mm, 32GB, BT/WiFi", price: "$199", bom: "~$50", margin: "~75%" },
-    { name: "Plus", detail: "Balanced 4.4mm, 128GB, display upgrade", price: "$349", bom: "~$70", margin: "~80%" },
-    { name: "Enthusiast", detail: "Dual DAC, balanced, 256GB, full set", price: "$599", bom: "~$95", margin: "~84%" },
-  ];
+  const years = ["Yr 0", "Yr 2", "Yr 4", "Yr 6", "Yr 8", "10-yr total"];
+  const traditional = ["$300", "$300", "$350", "$350", "$400", "$1,700"];
+  const modular = ["$300", "$80", "$100", "$80", "$120", "$680"];
 </script>
 
 <Slide bg={C.white}>
   <Rule w="100%" h={1} c={C.red} style="top: 8%; opacity: 0.08;" />
   <Pad>
-    <Label c={C.red}>Unit Economics</Label>
-    <h2>What The Player costs to build.</h2>
-    <div class="layout">
-      <div class="bom-col">
-        <div class="section-header">Base unit BOM at 1,000 units</div>
-        <div class="bom-table">
-          {#each bom as item}
-            <div class="bom-row">
-              <span class="bom-component">{item.component}</span>
-              <span class="bom-cost">{item.cost}</span>
+    <Label c={C.red}>Value Proposition</Label>
+    <h2>60% lower cost of ownership over a decade.</h2>
+    <div class="table-wrap">
+      <div class="table">
+        <div class="row header">
+          <div class="cell label-cell"></div>
+          {#each years as yr, i}
+            <div class="cell" class:total={i === years.length - 1}>{yr}</div>
+          {/each}
+        </div>
+        <div class="row traditional">
+          <div class="cell label-cell">Traditional</div>
+          {#each traditional as val, i}
+            <div class="cell" class:total={i === traditional.length - 1}>
+              {val}
             </div>
           {/each}
-          <div class="bom-row total">
-            <span class="bom-component">Total BOM</span>
-            <span class="bom-cost">$50–79</span>
-          </div>
+        </div>
+        <div class="row modular">
+          <div class="cell label-cell">Modular</div>
+          {#each modular as val, i}
+            <div class="cell" class:total={i === modular.length - 1}>{val}</div>
+          {/each}
         </div>
       </div>
-      <div class="pricing-col">
-        <div class="section-header">Pricing architecture</div>
-        {#each configs as cfg}
-          <div class="config-card">
-            <div class="config-header">
-              <span class="config-name">{cfg.name}</span>
-              <span class="config-price">{cfg.price}</span>
-            </div>
-            <div class="config-detail">{cfg.detail}</div>
-            <div class="config-metrics">
-              <span>BOM {cfg.bom}</span>
-              <span>Margin {cfg.margin}</span>
-            </div>
-          </div>
-        {/each}
-        <div class="upsell">
-          Module upsells after purchase: DAC swaps ($49–99), amp upgrades ($59–149), storage ($29–79). A $199 customer upgrading 2 modules = $350+ LTV.
+    </div>
+    <div class="savings-bar">
+      <div class="savings-visual">
+        <div class="bar trad-bar">
+          <span class="bar-label">Traditional</span>
+          <span class="bar-value">$1,700</span>
+        </div>
+        <div class="bar mod-bar">
+          <span class="bar-label">Modular</span>
+          <span class="bar-value">$680</span>
         </div>
       </div>
     </div>
     <div class="footnote">
-      BOM drops 25–35% at 5K units. Estimates at 1K MOQ; requires engineering validation.
+      Not a sustainability pitch. A wallet pitch. Sustainability is a side
+      effect of the economics, not the reason people buy.
     </div>
   </Pad>
 </Slide>
 
 <style>
   h2 {
-    font-size: 28px;
+    font-size: 30px;
     font-weight: 800;
     color: oklch(21.78% 0 0);
     line-height: 1.15;
-    margin: 0 0 24px 0;
+    margin: 0 0 32px 0;
   }
-  .layout {
-    display: flex;
-    gap: 28px;
-    max-width: 680px;
+  .table-wrap {
+    max-width: 620px;
+    margin-bottom: 32px;
   }
-  .bom-col {
-    flex: 1;
-    min-width: 0;
-  }
-  .pricing-col {
-    flex: 1;
-    min-width: 0;
-  }
-  .section-header {
-    font-size: 9px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: oklch(56.36% 0.0176 86.46);
-    margin-bottom: 10px;
-  }
-  .bom-table {
+  .table {
     display: flex;
     flex-direction: column;
   }
-  .bom-row {
+  .row {
     display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding: 4px 0;
-    border-bottom: 1px solid oklch(87.73% 0.0229 87.16 / 0.6);
+    border-bottom: 1px solid oklch(87.73% 0.0229 87.16);
   }
-  .bom-row.total {
-    border-bottom: none;
-    border-top: 2px solid oklch(21.78% 0 0);
-    margin-top: 2px;
-    padding-top: 6px;
+  .row.header {
+    border-bottom: 2px solid oklch(21.78% 0 0);
   }
-  .bom-component {
+  .row.header .cell {
     font-size: 10px;
-    color: oklch(21.78% 0 0);
-  }
-  .bom-row.total .bom-component,
-  .bom-row.total .bom-cost {
-    font-weight: 800;
-    font-size: 11px;
-  }
-  .bom-cost {
-    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     color: oklch(56.36% 0.0176 86.46);
     font-weight: 600;
-    text-align: right;
-    flex-shrink: 0;
-    margin-left: 8px;
   }
-  .config-card {
-    padding: 10px 12px;
-    background: oklch(95.68% 0.012 79.78);
-    border: 1px solid oklch(87.73% 0.0229 87.16);
-    border-radius: 6px;
-    margin-bottom: 8px;
-  }
-  .config-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 3px;
-  }
-  .config-name {
-    font-size: 13px;
-    font-weight: 700;
+  .cell {
+    flex: 1;
+    padding: 10px 8px;
+    font-size: 14px;
     color: oklch(21.78% 0 0);
+    text-align: center;
   }
-  .config-price {
-    font-size: 16px;
+  .cell.label-cell {
+    flex: 1.2;
+    text-align: left;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .cell.total {
     font-weight: 800;
     color: oklch(56.24% 0.1776 30.68);
   }
-  .config-detail {
-    font-size: 10px;
+  .row.traditional .cell.label-cell {
     color: oklch(56.36% 0.0176 86.46);
-    line-height: 1.4;
-    margin-bottom: 6px;
   }
-  .config-metrics {
+  .row.modular .cell.label-cell {
+    color: oklch(21.78% 0 0);
+  }
+  .savings-bar {
+    max-width: 500px;
+    margin-bottom: 28px;
+  }
+  .savings-visual {
     display: flex;
-    gap: 12px;
-    font-size: 9px;
-    color: oklch(56.36% 0.0176 86.46);
-    font-weight: 600;
+    flex-direction: column;
+    gap: 8px;
   }
-  .upsell {
+  .bar {
+    height: 28px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+  }
+  .trad-bar {
+    width: 100%;
+    background: oklch(56.36% 0.0176 86.46 / 0.15);
+  }
+  .mod-bar {
+    width: 40%;
+    background: oklch(56.24% 0.1776 30.68 / 0.15);
+    border: 1px solid oklch(56.24% 0.1776 30.68 / 0.3);
+  }
+  .bar-label {
     font-size: 10px;
-    color: oklch(56.36% 0.0176 86.46);
-    line-height: 1.5;
-    margin-top: 4px;
+    font-weight: 600;
+    color: oklch(21.78% 0 0);
+  }
+  .bar-value {
+    font-size: 12px;
+    font-weight: 800;
+    color: oklch(21.78% 0 0);
   }
   .footnote {
     margin-top: auto;
     padding-top: 12px;
-    font-size: 9px;
+    font-size: 13px;
     color: oklch(56.36% 0.0176 86.46);
-    opacity: 0.6;
+    line-height: 1.6;
+    max-width: 500px;
+    font-style: italic;
   }
 
   @media (max-width: 767px) {
     h2 {
-      font-size: 22px;
+      font-size: 24px;
     }
-    .layout {
-      flex-direction: column;
+    .table-wrap {
+      max-width: 100%;
+      overflow-x: auto;
+    }
+    .cell {
+      font-size: 12px;
+      padding: 8px 4px;
+    }
+    .savings-bar {
       max-width: 100%;
     }
   }

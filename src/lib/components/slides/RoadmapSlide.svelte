@@ -68,13 +68,7 @@
       {/each}
     </div>
     <div class="footer">
-      Each phase shares the same interconnect standard. Every module sold in
-      Phase 1 works in Phase 4.
-    </div>
-    <div class="vision-close">
-      When humanity becomes a spacefaring civilization, modularity won't be a
-      nice-to-have. It will be how everything is built.
-      <span class="starting-now">We're starting now.</span>
+      Same interconnect throughout. Every module from Phase 1 works in Phase 4.
     </div>
   </Pad>
 </Slide>
@@ -127,20 +121,6 @@
     color: oklch(56.36% 0.0176 86.46);
     max-width: 500px;
   }
-  .vision-close {
-    margin-top: 12px;
-    font-size: 13px;
-    color: oklch(95.68% 0.012 79.78 / 0.6);
-    line-height: 1.6;
-    font-style: italic;
-    max-width: 500px;
-  }
-  .starting-now {
-    color: oklch(74.98% 0.1407 87.06);
-    font-weight: 700;
-    font-style: normal;
-  }
-
   @media (max-width: 767px) {
     h2 {
       font-size: 24px;

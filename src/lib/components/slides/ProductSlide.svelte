@@ -27,12 +27,12 @@
     style="right: 30%; top: 20%; opacity: 0.06;"
   />
   <Pad>
-    <Label c={C.yellow}>Proof of Concept</Label>
+    <Label c={C.yellow}>First Product</Label>
     <h2>The Player</h2>
     <p class="subtitle">
-      The business is the interconnect platform. The Player proves it works. A
-      modular digital audio player — retro form factor, modern architecture —
-      built entirely on the standard to validate it across real components.
+      Modular digital audio player. The beachhead that proves TechLink works.
+      Every component hot-swappable: DAC, amp, storage, battery, wireless,
+      display.
     </p>
     <div class="modules-grid">
       {#each modules as m}
@@ -42,14 +42,21 @@
         </div>
       {/each}
     </div>
+    <div class="why-daps">
+      <div class="why-label">Why DAPs:</div>
+      <div class="why-text">
+        Audiophiles obsess over components. Vinyl revival proved retro +
+        quality = demand. No modular option exists.
+      </div>
+    </div>
     <div class="price-row">
       <div>
-        <div class="price-value">$800–$3,700</div>
-        <div class="price-label">Premium DAP price points (Astell&Kern)</div>
+        <div class="price-value">$199–$599</div>
+        <div class="price-label">Base to Enthusiast configs, 75–84% margin</div>
       </div>
       <div>
-        <div class="price-value">$107M</div>
-        <div class="price-label">Portable DAP market</div>
+        <div class="price-value">$350+</div>
+        <div class="price-label">LTV from $199 customer over 18 months</div>
       </div>
     </div>
     <div class="player-preview">
@@ -178,6 +185,24 @@
     font-size: 10px;
     color: oklch(56.36% 0.0176 86.46);
     line-height: 1.4;
+  }
+  .why-daps {
+    margin-top: 16px;
+    margin-bottom: 8px;
+    max-width: 400px;
+  }
+  .why-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: oklch(56.24% 0.1776 30.68);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .why-text {
+    font-size: 11px;
+    color: oklch(56.36% 0.0176 86.46);
+    line-height: 1.5;
   }
   .price-row {
     margin-top: auto;

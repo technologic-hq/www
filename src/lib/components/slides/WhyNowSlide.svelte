@@ -9,30 +9,30 @@
   const forces = [
     {
       n: "01",
-      label: "Regulation",
+      label: "Bandwidth solved",
       detail:
-        "EU Right to Repair mandatory July 2026. Six US states passed laws. Oregon banned parts pairing entirely.",
+        "USB4/Thunderbolt 5. EU USB-C mandate April 2026.",
       accent: C.red,
     },
     {
       n: "02",
-      label: "Consumer demand",
+      label: "Regulation",
       detail:
-        "80% willing to pay ~10% premium for sustainability. Gen Z chooses sustainable over brand names 75% of the time.",
+        "EU Right to Repair mandatory July 2026. Six US states. Oregon banned parts pairing.",
       accent: C.yellow,
     },
     {
       n: "03",
-      label: "Technical feasibility",
+      label: "Proven demand",
       detail:
-        "USB4 and Thunderbolt 5 solved the bandwidth problem that killed Project Ara. EU USB-C mandate standardizes charging across all devices by April 2026.",
+        "Framework: 100K+ laptops, $45M raised. Fairphone: €54M revenue. Back Market: $5.7B valuation.",
       accent: C.white,
     },
     {
       n: "04",
-      label: "Market proof",
+      label: "Cost curves caught up",
       detail:
-        "Framework raised $45M, shipped 100K+ laptops. Fairphone: €87M raised, €54M revenue. Back Market: $5.7B valuation.",
+        "Miniaturization and component pricing make modular form factors viable at consumer price points.",
       accent: C.cream,
     },
   ];
@@ -47,7 +47,7 @@
   <Tri s={40} c={C.yellow} style="top: 12%; right: 12%; opacity: 0.5;" />
   <Pad>
     <Label c={C.yellow}>Why Now</Label>
-    <h2>Four forces. All converging.</h2>
+    <h2>The blockers that killed every previous attempt are gone.</h2>
     <div class="forces">
       {#each forces as item}
         <div class="force-row">

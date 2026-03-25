@@ -13,7 +13,7 @@
   import MarketSlide from "$lib/components/slides/MarketSlide.svelte";
   import RoadmapSlide from "$lib/components/slides/RoadmapSlide.svelte";
   import BusinessSlide from "$lib/components/slides/BusinessSlide.svelte";
-  import CompetitionSlide from "$lib/components/slides/CompetitionSlide.svelte";
+
   import AskSlide from "$lib/components/slides/AskSlide.svelte";
   import ContactSlide from "$lib/components/slides/ContactSlide.svelte";
   import DownloadButton from "$lib/components/DownloadButton.svelte";
@@ -32,9 +32,9 @@
     { id: "problem", component: ProblemSlide, label: "Problem", dark: false },
     { id: "team", component: TeamSlide, label: "Founder", dark: true },
     {
-      id: "failing",
+      id: "graveyard",
       component: WhyFailingSlide,
-      label: "Insight",
+      label: "Graveyard",
       dark: false,
     },
     {
@@ -43,29 +43,23 @@
       label: "Solution",
       dark: false,
     },
-    { id: "space", component: SpaceSlide, label: "Space", dark: true },
-    { id: "whynow", component: WhyNowSlide, label: "Why Now", dark: true },
-    { id: "product", component: ProductSlide, label: "Product", dark: false },
     {
-      id: "unit-economics",
+      id: "value-prop",
       component: UnitEconomicsSlide,
-      label: "Economics",
+      label: "Value Prop",
       dark: false,
     },
-    { id: "market", component: MarketSlide, label: "Market", dark: false },
-    { id: "roadmap", component: RoadmapSlide, label: "Roadmap", dark: true },
+    { id: "whynow", component: WhyNowSlide, label: "Why Now", dark: true },
+    { id: "product", component: ProductSlide, label: "Product", dark: false },
     {
       id: "business",
       component: BusinessSlide,
       label: "Business",
       dark: false,
     },
-    {
-      id: "competition",
-      component: CompetitionSlide,
-      label: "Landscape",
-      dark: false,
-    },
+    { id: "market", component: MarketSlide, label: "Market", dark: false },
+    { id: "roadmap", component: RoadmapSlide, label: "Roadmap", dark: true },
+    { id: "space", component: SpaceSlide, label: "Vision", dark: true },
     { id: "ask", component: AskSlide, label: "The Ask", dark: true },
     { id: "contact", component: ContactSlide, label: "Contact", dark: false },
   ];

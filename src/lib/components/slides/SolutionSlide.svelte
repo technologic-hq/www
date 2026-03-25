@@ -6,31 +6,17 @@
   import Circ from "../primitives/Circ.svelte";
   import Tri from "../primitives/Tri.svelte";
 
-  const features = [
-    {
-      shape: "circle",
-      title: "Swappable",
-      desc: "Upgrade or replace individual components. Not the whole device.",
-      c: C.red,
-    },
-    {
-      shape: "square",
-      title: "Repairable",
-      desc: "Fix what's broken. A dead battery doesn't kill a device.",
-      c: C.blue,
-    },
-    {
-      shape: "triangle",
-      title: "Upgradeable",
-      desc: "New processor in two years? Swap the module. Keep everything else.",
-      c: C.yellow,
-    },
-    {
-      shape: "diamond",
-      title: "Open",
-      desc: "Published specs. Third-party modules. Community-designed expansions.",
-      c: C.black,
-    },
+  const specs = [
+    "Magnetic pogo pin array",
+    "USB4 data (40Gbps)",
+    "USB-PD power (up to 240W)",
+    "Module ID and hot-swap protocol layer",
+  ];
+
+  const formFactors = [
+    { label: "S", desc: "Wearable" },
+    { label: "M", desc: "Handheld" },
+    { label: "L", desc: "Appliance" },
   ];
 </script>
 
@@ -40,33 +26,46 @@
   <Tri s={50} c={C.blue} style="right: 28%; top: 18%; opacity: 0.15;" />
   <Pad>
     <Label c={C.red}>The Solution</Label>
-    <h2>Technologic</h2>
+    <h2>TechLink</h2>
     <p class="subtitle">
-      A modular electronics platform where the business model and the product
-      aren't fighting each other. One standardized interconnect across device
-      categories.
+      An open interconnect standard for modular electronics. One standard across
+      device categories. The comp isn't Framework — it's USB-IF or Bluetooth SIG,
+      except shipping first-party hardware to bootstrap the ecosystem.
     </p>
-    <div class="features-grid">
-      {#each features as item}
-        <div class="feature" style="border-top: 3px solid {item.c};">
-          <div class="feature-header">
-            {#if item.shape === "circle"}
-              <div class="shape-circle" style="background: {item.c};"></div>
-            {:else if item.shape === "square"}
-              <div class="shape-square" style="background: {item.c};"></div>
-            {:else if item.shape === "triangle"}
-              <div
-                class="shape-triangle"
-                style="border-bottom-color: {item.c};"
-              ></div>
-            {:else if item.shape === "diamond"}
-              <div class="shape-diamond" style="background: {item.c};"></div>
-            {/if}
-            <span class="feature-title">{item.title}</span>
-          </div>
-          <div class="feature-desc">{item.desc}</div>
+    <div class="two-col">
+      <div class="spec-col">
+        <div class="section-label">Target spec</div>
+        <div class="spec-list">
+          {#each specs as spec}
+            <div class="spec-item">{spec}</div>
+          {/each}
         </div>
-      {/each}
+        <div class="form-factors">
+          {#each formFactors as ff}
+            <div class="ff-tag">
+              <span class="ff-label">{ff.label}</span>
+              <span class="ff-desc">{ff.desc}</span>
+            </div>
+          {/each}
+        </div>
+        <div class="board-note">
+          Building this board is what the pre-seed funds.
+        </div>
+      </div>
+      <div class="proto-col">
+        <div class="section-label">Current prototype</div>
+        <div class="proto-detail">
+          Simplified I2C/SPI with resistor-based module ID. Validates snap-on,
+          hot-swap, and detection today.
+        </div>
+        <div class="flywheel">
+          <div class="section-label">Flywheel</div>
+          <div class="flywheel-text">
+            First-party hardware → third-party modules → more categories →
+            licensing revenue scales independently of device sales.
+          </div>
+        </div>
+      </div>
     </div>
   </Pad>
 </Slide>
@@ -93,65 +92,97 @@
     letter-spacing: -1px;
   }
   .subtitle {
-    font-size: 15px;
+    font-size: 14px;
     color: oklch(56.36% 0.0176 86.46);
-    margin: 0 0 32px 0;
+    margin: 0 0 28px 0;
     line-height: 1.55;
-    max-width: 420px;
-  }
-  .features-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
     max-width: 480px;
   }
-  .feature {
-    padding: 14px 0;
-  }
-  .feature-header {
+  .two-col {
     display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 6px;
+    gap: 32px;
+    max-width: 580px;
   }
-  .shape-circle {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
+  .spec-col,
+  .proto-col {
+    flex: 1;
   }
-  .shape-square {
-    width: 10px;
-    height: 10px;
+  .section-label {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: oklch(56.36% 0.0176 86.46);
+    margin-bottom: 10px;
+    font-weight: 600;
   }
-  .shape-triangle {
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-bottom: 10px solid;
+  .spec-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
   }
-  .shape-diamond {
-    width: 8px;
-    height: 8px;
-    transform: rotate(45deg);
-  }
-  .feature-title {
-    font-size: 14px;
-    font-weight: 700;
+  .spec-item {
+    font-size: 12px;
     color: oklch(21.78% 0 0);
+    padding-left: 12px;
+    border-left: 2px solid oklch(56.24% 0.1776 30.68);
+    line-height: 1.4;
   }
-  .feature-desc {
+  .form-factors {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .ff-tag {
+    padding: 6px 12px;
+    background: oklch(95.68% 0.012 79.78);
+    border: 1px solid oklch(87.73% 0.0229 87.16);
+    border-radius: 6px;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+  .ff-label {
+    font-size: 13px;
+    font-weight: 800;
+    color: oklch(56.24% 0.1776 30.68);
+  }
+  .ff-desc {
+    font-size: 10px;
+    color: oklch(56.36% 0.0176 86.46);
+  }
+  .board-note {
+    font-size: 11px;
+    color: oklch(56.24% 0.1776 30.68);
+    font-weight: 600;
+  }
+  .proto-detail {
     font-size: 12px;
     color: oklch(56.36% 0.0176 86.46);
-    line-height: 1.5;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  .flywheel {
+    padding: 14px 16px;
+    background: oklch(21.78% 0 0);
+    border-radius: 6px;
+  }
+  .flywheel .section-label {
+    color: oklch(74.98% 0.1407 87.06);
+    margin-bottom: 6px;
+  }
+  .flywheel-text {
+    font-size: 12px;
+    color: oklch(95.68% 0.012 79.78 / 0.7);
+    line-height: 1.6;
   }
 
   @media (max-width: 767px) {
     .border-box {
       display: none;
     }
-    .features-grid {
-      grid-template-columns: 1fr;
+    .two-col {
+      flex-direction: column;
       max-width: 100%;
     }
     .subtitle {

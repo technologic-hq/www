@@ -7,29 +7,41 @@
 
   const failures = [
     {
-      name: "Project Ara",
-      yr: "2013–16",
-      result:
-        "Modules 50–100% more expensive. 25% size/weight penalty. Cancelled.",
-      col: C.grey,
+      name: "Modu",
+      yr: "2007–11",
+      result: "Too early. Components too large.",
     },
     {
-      name: "Phonebloks",
-      yr: "2013",
-      result: "Viral concept, zero product. Inspired Ara, then vanished.",
-      col: C.grey,
+      name: "Project Ara",
+      yr: "2013–16",
+      result: "50–100% module premium. Interfaces too slow.",
+    },
+    {
+      name: "PuzzlePhone",
+      yr: "2014–17",
+      result: "Barely shipped.",
     },
     {
       name: "LG G5",
       yr: "2016",
-      result: "Two modules shipped. Abandoned after one generation.",
-      col: C.grey,
+      result: "Two modules. Needed to sell new phones.",
     },
     {
       name: "Moto Z",
       yr: "2016–18",
-      result: "14 Moto Mods launched. Ecosystem died quietly.",
-      col: C.grey,
+      result: "14 Moto Mods. Ecosystem died. Needed upgrade cycles.",
+    },
+    {
+      name: "Essential",
+      yr: "2017–20",
+      result:
+        "Sprint exclusive, bad camera, founder scandal. Failed as a phone, not as a modular concept.",
+    },
+    {
+      name: "Palm",
+      yr: "2009–11",
+      result:
+        "Beloved product, beloved OS. HP acquired it, new CEO killed it in 49 days.",
     },
   ];
 </script>
@@ -37,15 +49,15 @@
 <Slide bg={C.white}>
   <Rule w="100%" h={1} c={C.blue} style="bottom: 13%; opacity: 0.12;" />
   <Pad>
-    <Label c={C.blue}>The Insight</Label>
+    <Label c={C.blue}>The Graveyard</Label>
     <h2>
-      Modular hardware keeps failing.<br />
-      The engineering was never the problem.
+      Every modular attempt has failed.<br />
+      None failed because consumers rejected modularity.
     </h2>
     <div class="failures">
       {#each failures as item}
         <div class="failure-row">
-          <div class="dot" style="background: {item.col};"></div>
+          <div class="dot"></div>
           <div class="name-col">
             <span class="name">{item.name}</span>
             <span class="year">{item.yr}</span>
@@ -54,11 +66,30 @@
         </div>
       {/each}
     </div>
+    <div class="patterns">
+      <div class="pattern-row">
+        <span class="pattern-label">Pattern 1:</span>
+        <span class="pattern-text">Tech wasn't ready</span>
+        <span class="pattern-detail"
+          >(bandwidth, miniaturization, cost)</span
+        >
+      </div>
+      <div class="pattern-row">
+        <span class="pattern-label">Pattern 2:</span>
+        <span class="pattern-text"
+          >Corporate incentives killed the product</span
+        >
+        <span class="pattern-detail"
+          >(upgrade cycles, acquisitions, strategic pivots)</span
+        >
+      </div>
+    </div>
     <div class="callout">
       <p>
-        Every single attempt lived inside a company whose revenue depended on
-        you replacing the whole device. The incentive structure killed the
-        product before engineering ever could.
+        Framework finally ran the experiment right. Independent, no conflicts.
+        100K+ laptops. $45M raised. Genuinely loved. But it's one category, one
+        company. <strong>The venture-scale outcome isn't another device company.
+        It's the standard.</strong>
       </p>
     </div>
   </Pad>
@@ -66,59 +97,85 @@
 
 <style>
   h2 {
-    font-size: 30px;
+    font-size: 26px;
     font-weight: 800;
     color: oklch(21.78% 0 0);
     line-height: 1.2;
-    margin: 0 0 28px 0;
+    margin: 0 0 20px 0;
   }
   .failures {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    max-width: 580px;
+    gap: 6px;
+    max-width: 620px;
   }
   .failure-row {
     display: flex;
     align-items: baseline;
     gap: 12px;
     border-bottom: 1px solid oklch(87.73% 0.0229 87.16);
-    padding-bottom: 10px;
+    padding-bottom: 6px;
   }
   .dot {
-    min-width: 6px;
-    height: 6px;
+    min-width: 5px;
+    height: 5px;
     border-radius: 50%;
+    background: oklch(56.36% 0.0176 86.46);
     margin-top: 5px;
     flex-shrink: 0;
   }
   .name-col {
-    min-width: 130px;
+    min-width: 120px;
   }
   .name {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 700;
     color: oklch(21.78% 0 0);
   }
   .year {
-    font-size: 11px;
+    font-size: 10px;
     color: oklch(56.36% 0.0176 86.46);
     margin-left: 6px;
   }
   .result {
-    font-size: 12px;
+    font-size: 11px;
     color: oklch(56.36% 0.0176 86.46);
     line-height: 1.4;
   }
+  .patterns {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-width: 620px;
+  }
+  .pattern-row {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    font-size: 12px;
+  }
+  .pattern-label {
+    font-weight: 700;
+    color: oklch(56.24% 0.1776 30.68);
+    flex-shrink: 0;
+  }
+  .pattern-text {
+    font-weight: 600;
+    color: oklch(21.78% 0 0);
+  }
+  .pattern-detail {
+    color: oklch(56.36% 0.0176 86.46);
+  }
   .callout {
-    margin-top: 28px;
-    padding: 18px 22px;
+    margin-top: 16px;
+    padding: 14px 18px;
     background: oklch(21.78% 0 0);
     border-radius: 6px;
-    max-width: 580px;
+    max-width: 620px;
   }
   .callout p {
-    font-size: 15px;
+    font-size: 13px;
     color: oklch(95.68% 0.012 79.78);
     margin: 0;
     line-height: 1.6;
@@ -126,7 +183,7 @@
 
   @media (max-width: 767px) {
     h2 {
-      font-size: 24px;
+      font-size: 22px;
     }
     .failures {
       max-width: 100%;

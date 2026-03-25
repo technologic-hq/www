@@ -4,28 +4,11 @@
   import Pad from "../Pad.svelte";
   import Label from "../Label.svelte";
   import Sq from "../primitives/Sq.svelte";
-  import Rule from "../primitives/Rule.svelte";
 
-  const markets = [
-    {
-      label: "Consumer Electronics",
-      val: "$1.2T",
-      sub: "annually, 5.5–7.8% CAGR",
-    },
-    {
-      label: "Kitchen Appliances",
-      val: "$242B",
-      sub: "smart kitchen: 12.4% CAGR",
-    },
-    { label: "Climate Tech Investment", val: "$40.5B", sub: "2025, +8% YoY" },
-  ];
-
-  const categories = [
-    "Home appliances",
-    "Wearables & fitness",
-    "Smart home devices",
-    "Consumer audio",
-    "Kitchen electronics",
+  const reasons = [
+    "Upgrade cycles drive revenue",
+    "Proprietary parts create lock-in",
+    "iFixit-Samsung partnership ended 2024",
   ];
 </script>
 
@@ -35,37 +18,45 @@
     c={C.blue}
     style="bottom: -140px; right: -140px; opacity: 0.04;"
   />
-  <Rule
-    w="76%"
-    h={1}
-    c={C.black}
-    style="bottom: 13%; left: 10%; opacity: 0.08;"
-  />
   <Pad>
-    <Label c={C.blue}>Market</Label>
-    <h2>The categories with zero modular options.</h2>
-    <div class="market-layout">
-      <div class="market-numbers">
-        {#each markets as item}
-          <div class="market-item">
-            <div class="market-label">{item.label}</div>
-            <div class="market-val">{item.val}</div>
-            <div class="market-sub">{item.sub}</div>
+    <Label c={C.blue}>Market & Landscape</Label>
+    <h2>$1.2T consumer electronics market. Zero modular options.</h2>
+    <div class="layout">
+      <div class="chart-wrap">
+        <div class="y-label">Modularity</div>
+        <div class="chart">
+          <div class="point" style="left: 20%; top: 18%;">
+            <div class="dot grey"></div>
+            <div class="name">Framework</div>
+            <div class="sub">$45M &middot; Laptops</div>
           </div>
-        {/each}
+          <div class="point" style="left: 18%; top: 42%;">
+            <div class="dot grey"></div>
+            <div class="name">Fairphone</div>
+            <div class="sub">&euro;54M rev &middot; Phones</div>
+          </div>
+          <div class="point technologic" style="left: 62%; top: 14%;">
+            <div class="dot accent"></div>
+            <div class="name accent-name">Technologic</div>
+            <div class="sub">Multi-category platform</div>
+          </div>
+          <div class="point" style="left: 28%; top: 72%;">
+            <div class="dot faded"></div>
+            <div class="name faded-name">Apple</div>
+          </div>
+          <div class="point" style="left: 88%; top: 68%;">
+            <div class="dot faded"></div>
+            <div class="name faded-name">Samsung</div>
+          </div>
+        </div>
+        <div class="x-label">Category breadth</div>
       </div>
-      <div class="categories-col">
-        <div class="cat-header">Unaddressed categories</div>
-        {#each categories as cat}
-          <div class="cat-row">
-            <div class="cat-dot"></div>
-            <span class="cat-name">{cat}</span>
-            <span class="cat-note">No modular options</span>
-          </div>
-        {/each}
-        <div class="cat-footer">
-          Sustainable products grow 2.7x faster than conventional. 17% market
-          share, capturing 32% of growth.
+      <div class="sidebar">
+        <div class="sidebar-title">Incumbents won't build this</div>
+        <div class="sidebar-items">
+          {#each reasons as item}
+            <div class="sidebar-item">{item}</div>
+          {/each}
         </div>
       </div>
     </div>
@@ -74,99 +65,125 @@
 
 <style>
   h2 {
-    font-size: 30px;
+    font-size: 28px;
     font-weight: 800;
     color: oklch(21.78% 0 0);
-    line-height: 1.15;
-    margin: 0 0 32px 0;
+    line-height: 1.2;
+    margin: 0 0 28px 0;
   }
-  .market-layout {
+  .layout {
     display: flex;
     gap: 32px;
-    max-width: 620px;
+    align-items: flex-start;
   }
-  .market-numbers {
+  .chart-wrap {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .y-label {
+    font-size: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: oklch(56.36% 0.0176 86.46);
+    align-self: flex-start;
+    margin-bottom: -4px;
+  }
+  .x-label {
+    font-size: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: oklch(56.36% 0.0176 86.46);
+  }
+  .chart {
+    position: relative;
+    width: 280px;
+    height: 220px;
+    border-left: 1px solid oklch(21.78% 0 0 / 0.12);
+    border-bottom: 1px solid oklch(21.78% 0 0 / 0.12);
+    border-radius: 0 0 0 2px;
+  }
+  .point {
+    position: absolute;
+    text-align: center;
+    transform: translateX(-50%);
+  }
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin: 0 auto 4px;
+  }
+  .dot.grey {
+    background: oklch(56.36% 0.0176 86.46);
+  }
+  .dot.accent {
+    width: 14px;
+    height: 14px;
+    background: oklch(56.24% 0.1776 30.68);
+    box-shadow: 0 0 0 4px oklch(56.24% 0.1776 30.68 / 0.15);
+  }
+  .dot.faded {
+    background: oklch(56.36% 0.0176 86.46 / 0.25);
+  }
+  .name {
+    font-size: 9px;
+    color: oklch(56.36% 0.0176 86.46);
+    white-space: nowrap;
+  }
+  .accent-name {
+    font-size: 10px;
+    font-weight: 700;
+    color: oklch(56.24% 0.1776 30.68);
+  }
+  .faded-name {
+    color: oklch(56.36% 0.0176 86.46 / 0.4);
+  }
+  .sub {
+    font-size: 8px;
+    color: oklch(56.36% 0.0176 86.46 / 0.5);
+    white-space: nowrap;
+  }
+  .sidebar {
     flex: 1;
   }
-  .market-item {
-    margin-bottom: 24px;
-  }
-  .market-label {
-    font-size: 9px;
+  .sidebar-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: oklch(21.78% 0 0);
+    margin-bottom: 10px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: oklch(56.36% 0.0176 86.46);
-    margin-bottom: 4px;
   }
-  .market-val {
-    font-size: 32px;
-    font-weight: 900;
-    color: oklch(21.78% 0 0);
-    line-height: 1;
-  }
-  .market-sub {
-    font-size: 11px;
-    color: oklch(56.36% 0.0176 86.46);
-    margin-top: 2px;
-  }
-  .categories-col {
-    flex: 1;
+  .sidebar-items {
     display: flex;
     flex-direction: column;
     gap: 8px;
   }
-  .cat-header {
-    font-size: 9px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: oklch(56.36% 0.0176 86.46);
-    margin-bottom: 4px;
-  }
-  .cat-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 8px 12px;
-    background: oklch(95.68% 0.012 79.78);
-    border-radius: 6px;
-  }
-  .cat-dot {
-    width: 6px;
-    height: 6px;
-    background: oklch(56.24% 0.1776 30.68);
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-  .cat-name {
-    font-size: 12px;
-    color: oklch(21.78% 0 0);
-    font-weight: 500;
-  }
-  .cat-note {
-    font-size: 10px;
-    color: oklch(56.36% 0.0176 86.46);
-    margin-left: auto;
-  }
-  .cat-footer {
+  .sidebar-item {
     font-size: 11px;
     color: oklch(56.36% 0.0176 86.46);
-    margin-top: 8px;
     line-height: 1.5;
+    padding-left: 12px;
+    border-left: 2px solid oklch(87.73% 0.0229 87.16);
+    border-radius: 2px;
   }
 
   @media (max-width: 767px) {
     h2 {
-      font-size: 24px;
+      font-size: 22px;
     }
-    .market-layout {
+    .layout {
       flex-direction: column;
-      max-width: 100%;
     }
-    .cat-note {
-      display: none;
+    .chart {
+      width: 220px;
+      height: 170px;
     }
-    .market-val {
-      font-size: 26px;
+    .sidebar {
+      width: 100%;
     }
   }
 </style>
