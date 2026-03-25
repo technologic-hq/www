@@ -25,14 +25,14 @@
       n: "03",
       label: "Proven demand",
       detail:
-        "Framework: 100K+ laptops, $45M raised. Fairphone: €54M revenue. Back Market: $5.7B valuation.",
+        "Framework: 100K+ laptops, $45M raised. Fairphone: €54M revenue (2024). Back Market: $5.7B valuation.",
       accent: C.white,
     },
     {
       n: "04",
       label: "Cost curves caught up",
       detail:
-        "Miniaturization and component pricing make modular form factors viable at consumer price points.",
+        "Components got small enough and cheap enough. Modular form factors are viable at consumer price points.",
       accent: C.cream,
     },
   ];

@@ -44,7 +44,6 @@
       items: [
         "Enterprise / space contracts",
         "Open standard consortium",
-        "Global manufacturing",
       ],
       c: C.white,
     },

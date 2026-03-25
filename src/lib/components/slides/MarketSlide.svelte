@@ -33,7 +33,7 @@
           <div class="point" style="left: 18%; top: 42%;">
             <div class="dot grey"></div>
             <div class="name">Fairphone</div>
-            <div class="sub">&euro;54M rev &middot; Phones</div>
+            <div class="sub">&euro;54M rev (2024) &middot; Phones</div>
           </div>
           <div class="point technologic" style="left: 62%; top: 14%;">
             <div class="dot accent"></div>

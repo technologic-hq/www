@@ -16,7 +16,7 @@
 
   const milestones = [
     "Production-ready Player",
-    "TechLink USB4 board",
+    "The Link USB4 board",
     "5,000-unit run",
     "Crowdfunding launch",
     "Path to seed",
@@ -45,7 +45,7 @@
         {/each}
       </div>
       <div class="milestones-col">
-        <div class="col-header">Milestones unlocked</div>
+        <div class="col-header">Gets us to</div>
         <div class="milestone-list">
           {#each milestones as m}
             <div class="milestone-row">

@@ -20,7 +20,7 @@
     },
     {
       stream: "Licensing",
-      desc: "Third-party certified modules, open spec revenue",
+      desc: "Third-party certified modules",
       pct: 20,
       c: C.yellow,
     },
@@ -59,12 +59,8 @@
     </div>
     <div class="callouts">
       <div class="callout-dark">
-        <span class="bold">LTV multiplier:</span> A customer upgrading modules for
-        10 years is worth far more than a single device sale.
-      </div>
-      <div class="callout-border">
-        <span class="bold">HaaS premium:</span> Hardware-as-a-Service earns 59% higher
-        median revenue multiples.
+        A customer upgrading modules for 10 years is worth far more than a
+        single device sale.
       </div>
     </div>
   </Pad>
@@ -120,25 +116,13 @@
     max-width: 540px;
   }
   .callout-dark {
-    flex: 1;
     padding: 14px 18px;
     background: oklch(21.78% 0 0);
     border-radius: 6px;
     font-size: 13px;
     color: oklch(95.68% 0.012 79.78);
     line-height: 1.5;
-  }
-  .callout-border {
-    flex: 1;
-    padding: 14px 18px;
-    border: 2px solid oklch(21.78% 0 0);
-    border-radius: 6px;
-    font-size: 13px;
-    color: oklch(21.78% 0 0);
-    line-height: 1.5;
-  }
-  .bold {
-    font-weight: 700;
+    max-width: 540px;
   }
 
   @media (max-width: 767px) {

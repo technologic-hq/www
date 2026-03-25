@@ -48,10 +48,6 @@
       {/each}
     </div>
     <div class="footer">
-      <div class="footer-text">
-        E-waste is growing 5x faster than recycling infrastructure. 1.55 million
-        trucks of it would circle the equator bumper-to-bumper.
-      </div>
       <div class="footer-source">Source: UN Global E-waste Monitor 2024</div>
     </div>
   </Pad>
@@ -102,12 +98,6 @@
   .footer {
     margin-top: auto;
     padding-top: 20px;
-  }
-  .footer-text {
-    font-size: 13px;
-    color: oklch(56.36% 0.0176 86.46);
-    line-height: 1.6;
-    max-width: 520px;
   }
   .footer-source {
     font-size: 9px;

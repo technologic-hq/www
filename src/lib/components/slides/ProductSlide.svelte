@@ -9,7 +9,7 @@
 
   const modules = [
     { mod: "DAC", desc: "Swappable audio chipset" },
-    { mod: "Storage", desc: "Expandable local media" },
+    { mod: "Storage", desc: "Local media, swappable" },
     { mod: "Amp", desc: "Headphone amplifier" },
     { mod: "Wireless", desc: "Bluetooth · WiFi" },
     { mod: "Battery", desc: "Hot-swappable power" },
@@ -30,7 +30,7 @@
     <Label c={C.yellow}>First Product</Label>
     <h2>The Player</h2>
     <p class="subtitle">
-      Modular digital audio player. The beachhead that proves TechLink works.
+      Modular digital audio player. The beachhead that proves The Link works.
       Every component hot-swappable: DAC, amp, storage, battery, wireless,
       display.
     </p>

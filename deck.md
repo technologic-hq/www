@@ -18,7 +18,7 @@ A new chip is released and your two-year-old device loses half its resale value 
 
 # Slide 2: The Problem
 
-## 62 million tonnes of e-waste a year. Less than a quarter recycled.
+## 62 million tonnes of e-waste a year. We recycle less than a quarter of it.
 
 | **$62B**                               | **22%**           | **1 in 3**                  | **87%**                                          |
 | -------------------------------------- | ----------------- | --------------------------- | ------------------------------------------------ |
@@ -71,9 +71,9 @@ Framework finally ran the experiment right. Independent, no conflicts. 100K+ lap
 
 # Slide 5: The Solution
 
-## TechLink: an open interconnect standard for modular electronics.
+## The Link: an open interconnect standard for modular electronics.
 
-One standard across device categories. The comp isn't Framework. It's USB-IF or Bluetooth SIG, except shipping first-party hardware to bootstrap the ecosystem.
+One standard across device categories. The comp isn't Framework. It's USB-IF or Bluetooth SIG, except we ship first-party hardware to bootstrap the ecosystem.
 
 **Target spec:**
 
@@ -81,11 +81,6 @@ One standard across device categories. The comp isn't Framework. It's USB-IF or 
 - Module ID and hot-swap protocol layer
 - Three form factors: S (wearable), M (handheld), L (appliance)
 - Building this board is what the pre-seed funds
-
-**Current prototype:**
-
-- Simplified I2C/SPI with resistor-based module ID
-- Validates snap-on, hot-swap, and detection today
 
 **Flywheel:** First-party hardware → third-party modules → more categories → licensing revenue scales independently of device sales.
 
@@ -110,14 +105,14 @@ Not a sustainability pitch. A wallet pitch. Sustainability is a side effect of t
 
 - **Bandwidth solved.** USB4/Thunderbolt 5. EU USB-C mandate April 2026.
 - **Regulation.** EU Right to Repair mandatory July 2026. Six US states. Oregon banned parts pairing.
-- **Proven demand.** Framework: 100K+ laptops, $45M raised. Fairphone: €54M revenue. Back Market: $5.7B valuation.
-- **Cost curves caught up.** Miniaturization and component pricing make modular form factors viable at consumer price points.
+- **Proven demand.** Framework: 100K+ laptops, $45M raised. Fairphone: €54M revenue (2024). Back Market: $5.7B valuation.
+- **Cost curves caught up.** Components got small enough and cheap enough. Modular form factors are viable at consumer price points.
 
 ---
 
 # Slide 8: First Product. The Player
 
-## Modular digital audio player. The beachhead that proves TechLink works.
+## Modular digital audio player. The beachhead that proves The Link works.
 
 Every component hot-swappable: DAC, amp, storage, battery, wireless, display.
 
@@ -166,7 +161,7 @@ A customer upgrading modules for 10 years is worth far more than a single device
     SINGLE CATEGORY       │        MULTI-CATEGORY
                           │
          Fairphone ●      │
-         €87M · Phones    │
+         €54M rev (2024)  │
                           │
               Apple ·     │    · Samsung
                           │
@@ -214,7 +209,7 @@ Space is where this ends up. Consumer is how we get there.
 | Design & prototyping           | 20%        |
 | Operations & community         | 15%        |
 
-**Gets us to:** Production-ready Player · TechLink USB4 board · 5,000-unit run · Crowdfunding launch · Path to seed
+**Gets us to:** Production-ready Player · The Link USB4 board · 5,000-unit run · Crowdfunding launch · Path to seed
 
 ---
 
