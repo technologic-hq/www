@@ -47,7 +47,8 @@
   <Tri s={40} c={C.yellow} style="top: 12%; right: 12%; opacity: 0.5;" />
   <Pad>
     <Label c={C.yellow}>Why Now</Label>
-    <h2>The blockers that killed every previous attempt are gone.</h2>
+    <h2>Four forces. All converging.</h2>
+    <div class="subtitle">The blockers that killed every previous attempt are gone.</div>
     <div class="forces">
       {#each forces as item}
         <div class="force-row">
@@ -71,6 +72,11 @@
     color: oklch(95.68% 0.012 79.78);
     line-height: 1.15;
     margin: 0 0 36px 0;
+  }
+  .subtitle {
+    font-size: 16px;
+    color: oklch(95.68% 0.012 79.78 / 0.5);
+    margin-bottom: 32px;
   }
   .forces {
     display: flex;

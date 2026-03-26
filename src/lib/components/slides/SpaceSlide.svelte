@@ -15,7 +15,7 @@
   <Pad style="justify-content: center;">
     <div class="content">
       <Label c={C.yellow}>The Long-Term Vision</Label>
-      <h2>Space is where this matters most.</h2>
+      <h2>Space is the logical extreme of the TCO argument.</h2>
       <div class="stats-row">
         <div class="stat">
           <div class="stat-value">6–9<span class="stat-unit">months</span></div>
@@ -36,7 +36,7 @@
         </div>
       </div>
       <div class="closer">
-        Space is where this ends up. Consumer is how we get there.
+        Our thesis: What's essential for space is transformative for Earth.
       </div>
     </div>
   </Pad>

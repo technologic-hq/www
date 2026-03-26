@@ -34,9 +34,9 @@ _Source: UN Global E-waste Monitor 2024_
 
 24 · Software & Design Engineer · Applied & Computational Mathematics @ USC
 
+- **Technologic prototype**: Hot-swappable camera modules on Raspberry Pi. Detect on connect, swap without reboot, degrade cleanly on removal.
 - **Curio** (AI hardware startup): Shipped ESP32 firmware and consumer app end-to-end. Chip to App Store, alone.
 - **Trufflepig**: Built the product from zero as founding engineer.
-- **Technologic prototype**: Hot-swappable camera modules on Raspberry Pi. Detect on connect, swap without reboot, degrade cleanly on removal.
 
 `[PHOTO: Pi prototype with swappable modules visible]`
 
@@ -73,7 +73,7 @@ Framework finally ran the experiment right. Independent, no conflicts. 100K+ lap
 
 ## The Link: an open interconnect standard for modular electronics.
 
-One standard across device categories. The comp isn't Framework. It's USB-IF or Bluetooth SIG, except we ship first-party hardware to bootstrap the ecosystem.
+We set the standard, then ship the hardware to prove it.
 
 **Target spec:**
 
@@ -82,18 +82,19 @@ One standard across device categories. The comp isn't Framework. It's USB-IF or 
 - Three form factors: S (wearable), M (handheld), L (appliance)
 - Building this board is what the pre-seed funds
 
-**Flywheel:** First-party hardware → third-party modules → more categories → licensing revenue that grows whether or not we sell more devices.
+**Flywheel:** First-party hardware → third-party modules → more categories → licensing revenue scales independently of device sales.
 
 ---
 
 # Slide 6: The Value Prop
 
-## 60% lower cost of ownership over a decade.
+## What the average US consumer actually spends.
 
-| Scenario        | Yr 0 | Yr 2 | Yr 4 | Yr 6 | Yr 8 | **10-yr total** |
-| --------------- | ---- | ---- | ---- | ---- | ---- | --------------- |
-| **Traditional** | $300 | $300 | $350 | $350 | $400 | **$1,700**      |
-| **Modular**     | $300 | $80  | $100 | $80  | $120 | **$680**        |
+| Scenario                           | Avg device | Devices / decade | 10-yr cost      |
+| ---------------------------------- | ---------- | ---------------- | --------------- |
+| **Flagship, every cycle**          | ~$940      | 3-4              | $2,800-3,700    |
+| **Budget, stretch and replace**    | ~$380      | 2-3              | $760-1,140      |
+| **Modular, upgrade the part**      | ~$300      | 1                | **~$680**       |
 
 Cheaper devices move units. More units mean more people building on The Link. That's when licensing kicks in.
 
@@ -101,7 +102,9 @@ Cheaper devices move units. More units mean more people building on The Link. Th
 
 # Slide 7: Why Now
 
-## The blockers that killed every previous attempt are gone.
+## Four forces. All converging.
+
+The blockers that killed every previous attempt are gone.
 
 - **Bandwidth solved.** USB4/Thunderbolt 5. EU USB-C mandate April 2026.
 - **Regulation.** EU Right to Repair mandatory July 2026. Six US states. Oregon banned parts pairing.
@@ -174,6 +177,8 @@ Incumbents won't build this. Upgrade cycles drive revenue. Proprietary parts cre
 
 # Slide 11: Roadmap
 
+## From one device to an ecosystem.
+
 **2026 · The Player** → Prototype → Crowdfund → First 1,000 units
 
 **2027 · Expand** → Second category → Module marketplace → Developer SDK
@@ -188,13 +193,13 @@ Same interconnect throughout. Every module from Phase 1 works in Phase 4.
 
 # Slide 12: The Long-Term Vision
 
-## Space is where this matters most.
+## Space is the logical extreme of the TCO argument.
 
 6–9 months from the nearest supply chain. $200K/kg to ship a replacement to Mars. Component-level repair isn't a feature, it's the only option.
 
 > NASA's CLEAR project: component-level repair is 1,000x more efficient than unit-level replacement.
 
-Space is where this ends up. Consumer is how we get there.
+Our thesis: What's essential for space is transformative for Earth.
 
 ---
 

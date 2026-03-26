@@ -8,6 +8,12 @@
 
   const experience = [
     {
+      role: "Technologic Prototype",
+      co: "",
+      desc: "Hot-swappable camera modules on Raspberry Pi. Detect on connect, swap without reboot, degrade cleanly on removal.",
+      c: C.blue,
+    },
+    {
       role: "Founding Product Engineer",
       co: "Curio",
       desc: "AI hardware startup. Shipped ESP32 firmware and consumer app end-to-end. Chip to App Store, alone.",
@@ -18,12 +24,6 @@
       co: "Trufflepig",
       desc: "Built the product from zero as founding engineer.",
       c: C.yellow,
-    },
-    {
-      role: "Technologic Prototype",
-      co: "",
-      desc: "Hot-swappable camera modules on Raspberry Pi. Detect on connect, swap without reboot, degrade cleanly on removal.",
-      c: C.blue,
     },
   ];
 

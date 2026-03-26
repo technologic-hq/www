@@ -21,7 +21,9 @@
         <div class="accent-bar"></div>
         <p>
           Modular consumer electronics.<br />
-          Built to last. Built to scale. Built for what comes next.
+          Built <span class="emphasis">to last</span>.<br />
+          Built <span class="emphasis">to scale</span>.<br />
+          Built <span class="emphasis">for what comes next</span>.
         </p>
       </div>
     </div>
@@ -86,6 +88,11 @@
     color: oklch(56.36% 0.0176 86.46);
     margin: 0;
     line-height: 1.55;
+  }
+  .emphasis {
+    font-variation-settings:
+      "wght" 650,
+      "wdth" 151;
   }
 
   @media (max-width: 767px) {

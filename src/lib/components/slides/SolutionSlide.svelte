@@ -15,8 +15,7 @@
       An open interconnect standard for modular electronics.
     </p>
     <div class="comp">
-      The comp isn't Framework. It's USB-IF or Bluetooth SIG, except we ship
-      first-party hardware to bootstrap the ecosystem.
+      We set the standard, then ship the hardware to prove it.
     </div>
     <div class="spec-row">
       <div class="spec-card">
@@ -56,7 +55,7 @@
     </div>
     <div class="flywheel">
       First-party hardware → third-party modules → more categories → licensing
-      revenue that grows whether or not we sell more devices.
+      revenue scales independently of device sales.
     </div>
     <div class="board-note">
       Building this board is what the pre-seed funds.

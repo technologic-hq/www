@@ -53,7 +53,7 @@
 <Slide bg={C.black}>
   <Pad>
     <Label c={C.yellow}>Roadmap</Label>
-    <h2>One device, then everything else.</h2>
+    <h2>From one device to an ecosystem.</h2>
     <div class="phases">
       {#each phases as p}
         <div class="phase">
