@@ -1,6 +1,9 @@
 # TECHNOLOGIC
 
-## Modular consumer electronics. Built to last. Built to scale. Built for what comes next.
+## Modular consumer electronics.
+Built to last.
+Built to scale.
+Built for what comes next.
 
 **PRE-SEED · 2026**
 
